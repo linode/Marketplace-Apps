@@ -28,7 +28,7 @@ Providing thorough technical documentation is a requirement of submitting a One-
 
 Add your documentation as an additional file in your pull request or add a link to documentation on your company website.
 
-### App Assets ### <br>
+### App Assets ### 
 *Submit assets via .zip folder with your pull request.*
 
 Linode’s Marketplace listings features gradient backgrounds and a prominent logo display, as well as the logos in Cloud Manager. Please follow the directions for submitting design assets. Application submissions will not be accepted without the required assets.
