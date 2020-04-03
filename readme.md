@@ -1,12 +1,12 @@
 ![Linode Logo](https://github.com/linode/docs/blob/develop/docs/assets/linode_readme_logo.png?raw=true)
 
-# Linode Marketplace Submission Information #
+# Linode Marketplace Submission Information
 
 The Linode Marketplace is designed to make it easier for developers and companies to share One-Click Apps with the Linode community.
 
 In addition to submitting your StackScript that will contain your application’s information to display in the Linode Cloud Manager, Linode requires additional information and brand assets for your Marketplace listing on Linode.com. Submit the following required information as a .txt or .md file along with your StackScript and assets folder in your submission pull request.
 
-### App Information ###
+## App Information
 
 **App Name**
 
@@ -28,7 +28,8 @@ Providing thorough technical documentation is a requirement of submitting a One-
 
 Add your documentation as an additional file in your pull request or add a link to documentation on your company website.
 
-### App Assets ### 
+## App Assets
+
 *Submit assets via .zip folder with your pull request.*
 
 Linode’s Marketplace listings features gradient backgrounds and a prominent logo display, as well as the logos in Cloud Manager. Please follow the directions for submitting design assets. Application submissions will not be accepted without the required assets.
