@@ -49,19 +49,18 @@ cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
 END
 
 # make public_html & logs
-mkdir -p /var/www/html/$WEBSITE/{public_html,logs,src}
+mkdir -p /var/www/html/$WEBSITE/{public_html,logs}
 
 # remove default apache page
 rm /var/www/html/index.html
 
 # install wordpress
-cd /var/www/html/$WEBSITE/src/
+cd /var/www/html/$WEBSITE/public_html
+wget -O /tmp/wordpress.tar.gz https://wordpress.org/latest.tar.gz
+tar -xzf /tmp/wordpress.tar.gz --strip-components=1
 chown -R www-data:www-data /var/www/html/$WEBSITE/
-wget http://wordpress.org/latest.tar.gz
-sudo -u www-data tar -xvf latest.tar.gz
-mv latest.tar.gz wordpress-`date "+%Y-%m-%d"`.tar.gz
-mv wordpress/* ../public_html/
-chown -R www-data:www-data /var/www/html/$WEBSITE/public_html
+# remove tar file
+rm /tmp/wordpress.tar.gz
 
 
 # link your virtual host file from the sites-available directory to the sites-enabled directory
