@@ -16,7 +16,7 @@ adduser $SSUSER sudo
 
 # updates
 apt-get -o Acquire::ForceIPv4=true update -y
-sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold"  install grub-pc
+DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold"  install grub-pc
 apt-get -o Acquire::ForceIPv4=true update -y
 
 #SET HOSTNAME	
@@ -56,16 +56,16 @@ rm /var/www/html/index.html
 
 # Install wordpress
 cd /var/www/html/$WEBSITE/src/
-sudo chown -R www-data:www-data /var/www/html/$WEBSITE/
-sudo wget http://wordpress.org/latest.tar.gz
+chown -R www-data:www-data /var/www/html/$WEBSITE/
+wget http://wordpress.org/latest.tar.gz
 sudo -u www-data tar -xvf latest.tar.gz
-sudo mv latest.tar.gz wordpress-`date "+%Y-%m-%d"`.tar.gz
-sudo mv wordpress/* ../public_html/
-sudo chown -R www-data:www-data /var/www/html/$WEBSITE/public_html
+mv latest.tar.gz wordpress-`date "+%Y-%m-%d"`.tar.gz
+mv wordpress/* ../public_html/
+chown -R www-data:www-data /var/www/html/$WEBSITE/public_html
 
 
 #Link your virtual host file from the sites-available directory to the sites-enabled directory:
-sudo a2ensite $WEBSITE.conf
+a2ensite $WEBSITE.conf
 
 
 #Disable the default virtual host to minimize security risks:
@@ -78,8 +78,8 @@ systemctl restart apache2
 
 
 # Install MySQL Server in a Non-Interactive mode. Default root password will be "root"
-echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | sudo debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | sudo debconf-set-selections
+echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | debconf-set-selections
+echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | debconf-set-selections
 apt-get -y install mysql-server
 
 mysql -uroot -p$DB_PASSWORD -e "create database wordpress"
