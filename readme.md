@@ -24,7 +24,7 @@ In addition to submitting your StackScript that will contain your application’
 **Documentation** <br>
 Providing thorough technical documentation is a requirement of submitting a One-Click App to Linode’s Marketplace for both testing purposes and publishing the Doc to our Docs Library. 
 
-[Documentation Example: Deploying WordPress with One-Click Apps.]( https://www.linode.com/docs/platform/one-click/deploying-wordpress-with-one-click-apps/)
+[Documentation Example: Deploying WordPress with One-Click Apps.](https://www.linode.com/docs/platform/one-click/deploying-wordpress-with-one-click-apps/)
 
 Add your documentation as an additional file in your pull request or add a link to documentation on your company website.
 
