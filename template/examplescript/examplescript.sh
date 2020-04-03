@@ -24,7 +24,7 @@ hostnamectl set-hostname $HOSTNAME
 echo "127.0.0.1   $HOSTNAME" >> /etc/hosts
 
 # install apache
-apt-get install apache2 -y
+apt-get install -y apache2
 
 # edit apache config
 sed -ie "s/KeepAlive Off/KeepAlive On/g" /etc/apache2/apache2.conf
@@ -80,7 +80,7 @@ systemctl restart apache2
 # install MySQL Server in a Non-Interactive mode. Default root password will be "root"
 echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | debconf-set-selections
 echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | debconf-set-selections
-apt-get -y install mysql-server
+apt-get install -y mysql-server
 
 mysql -uroot -p$DB_PASSWORD -e "CREATE DATABASE wordpress;"
 mysql -uroot -p$DB_PASSWORD -e "CREATE USER '$DBUSER' IDENTIFIED BY '$DBUSER_PASSWORD';"
@@ -89,7 +89,7 @@ mysql -uroot -p$DB_PASSWORD -e "GRANT ALL PRIVILEGES ON wordpress.* TO '$DBUSER'
 systemctl restart mysql
 
 # installing php
-apt-get install php7.0 php-pear libapache2-mod-php7.0 php7.0-mysql -y php-gd
+apt-get install -y php7.0 php-pear libapache2-mod-php7.0 php7.0-mysql php-gd
 
 # making directory for php? giving apache permissions to that log? restarting php
 mkdir /var/log/php
