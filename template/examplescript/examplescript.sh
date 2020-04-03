@@ -86,7 +86,7 @@ mysql -uroot -p$DB_PASSWORD -e "CREATE DATABASE wordpress;"
 mysql -uroot -p$DB_PASSWORD -e "CREATE USER '$DBUSER' IDENTIFIED BY '$DBUSER_PASSWORD';"
 mysql -uroot -p$DB_PASSWORD -e "GRANT ALL PRIVILEGES ON wordpress.* TO '$DBUSER';"
 
-service mysql restart
+systemctl restart mysql
 
 # installing php
 apt-get install php7.0 php-pear libapache2-mod-php7.0 php7.0-mysql -y php-gd
