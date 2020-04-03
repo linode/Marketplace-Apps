@@ -82,9 +82,8 @@ echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | debconf-s
 echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | debconf-set-selections
 apt-get -y install mysql-server
 
-mysql -uroot -p$DB_PASSWORD -e "create database wordpress"
-mysql -uroot -p$DB_PASSWORD -e "CREATE USER '$DBUSER' IDENTIFIED BY '$DBUSER_PASSWORD';
-"
+mysql -uroot -p$DB_PASSWORD -e "CREATE DATABASE wordpress;"
+mysql -uroot -p$DB_PASSWORD -e "CREATE USER '$DBUSER' IDENTIFIED BY '$DBUSER_PASSWORD';"
 mysql -uroot -p$DB_PASSWORD -e "GRANT ALL PRIVILEGES ON wordpress.* TO '$DBUSER';"
 
 service mysql restart
