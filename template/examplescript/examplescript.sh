@@ -19,18 +19,18 @@ apt-get -o Acquire::ForceIPv4=true update -y
 DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" install grub-pc
 apt-get -o Acquire::ForceIPv4=true update -y
 
-#SET HOSTNAME
+# set hostname
 hostnamectl set-hostname $HOSTNAME
 echo "127.0.0.1   $HOSTNAME" >> /etc/hosts
 
-#INSTALL APACHE
+# install apache
 apt-get install apache2 -y
 
 # edit apache config
 sed -ie "s/KeepAlive Off/KeepAlive On/g" /etc/apache2/apache2.conf
 
 
-#Create a copy of the default Apache configuration file for your site:
+# create a copy of the default Apache configuration file for your site
 cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/$WEBSITE.conf
 
 # configuration of vhost file
@@ -48,13 +48,13 @@ cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
 </VirtualHost>
 END
 
-# Make public_html & logs
+# make public_html & logs
 mkdir -p /var/www/html/$WEBSITE/{public_html,logs,src}
 
-# Remove default apache page
+# remove default apache page
 rm /var/www/html/index.html
 
-# Install wordpress
+# install wordpress
 cd /var/www/html/$WEBSITE/src/
 chown -R www-data:www-data /var/www/html/$WEBSITE/
 wget http://wordpress.org/latest.tar.gz
@@ -64,11 +64,11 @@ mv wordpress/* ../public_html/
 chown -R www-data:www-data /var/www/html/$WEBSITE/public_html
 
 
-#Link your virtual host file from the sites-available directory to the sites-enabled directory:
+# link your virtual host file from the sites-available directory to the sites-enabled directory
 a2ensite $WEBSITE.conf
 
 
-#Disable the default virtual host to minimize security risks:
+# disable the default virtual host to minimize security risks
 a2dissite 000-default.conf
 
 
@@ -77,7 +77,7 @@ systemctl reload apache2
 systemctl restart apache2
 
 
-# Install MySQL Server in a Non-Interactive mode. Default root password will be "root"
+# install MySQL Server in a Non-Interactive mode. Default root password will be "root"
 echo "mysql-server mysql-server/root_password password $DB_PASSWORD" | debconf-set-selections
 echo "mysql-server mysql-server/root_password_again password $DB_PASSWORD" | debconf-set-selections
 apt-get -y install mysql-server
@@ -89,7 +89,7 @@ mysql -uroot -p$DB_PASSWORD -e "GRANT ALL PRIVILEGES ON wordpress.* TO '$DBUSER'
 
 service mysql restart
 
-#installing php
+# installing php
 apt-get install php7.0 php-pear libapache2-mod-php7.0 php7.0-mysql -y php-gd
 
 # making directory for php? giving apache permissions to that log? restarting php
