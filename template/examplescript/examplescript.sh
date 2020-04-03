@@ -1,5 +1,5 @@
-#!/bin/bash 
-##  
+#!/bin/bash
+##
 # <UDF name="ssuser" Label="New user" example="username" />
 # <UDF name="sspassword" Label="New user password" example="Password" />
 # <UDF name="hostname" Label="Hostname" example="examplehost" />
@@ -16,10 +16,10 @@ adduser $SSUSER sudo
 
 # updates
 apt-get -o Acquire::ForceIPv4=true update -y
-DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold"  install grub-pc
+DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" install grub-pc
 apt-get -o Acquire::ForceIPv4=true update -y
 
-#SET HOSTNAME	
+#SET HOSTNAME
 hostnamectl set-hostname $HOSTNAME
 echo "127.0.0.1   $HOSTNAME" >> /etc/hosts
 
@@ -39,12 +39,12 @@ cat <<END >/etc/apache2/sites-available/$WEBSITE.conf
     Require all granted
 </Directory>
 <VirtualHost *:80>
-        ServerName $WEBSITE
-        ServerAlias www.$WEBSITE
-        ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/html/$WEBSITE/public_html
-        ErrorLog /var/www/html/$WEBSITE/logs/error.log
-        CustomLog /var/www/html/$WEBSITE/logs/access.log combined
+    ServerName $WEBSITE
+    ServerAlias www.$WEBSITE
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/$WEBSITE/public_html
+    ErrorLog /var/www/html/$WEBSITE/logs/error.log
+    CustomLog /var/www/html/$WEBSITE/logs/access.log combined
 </VirtualHost>
 END
 
@@ -88,7 +88,7 @@ mysql -uroot -p$DB_PASSWORD -e "CREATE USER '$DBUSER' IDENTIFIED BY '$DBUSER_PAS
 mysql -uroot -p$DB_PASSWORD -e "GRANT ALL PRIVILEGES ON wordpress.* TO '$DBUSER';"
 
 service mysql restart
- 
+
 #installing php
 apt-get install php7.0 php-pear libapache2-mod-php7.0 php7.0-mysql -y php-gd
 
