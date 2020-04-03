@@ -43,5 +43,6 @@ Linode’s Marketplace listings features gradient backgrounds and a prominent lo
 **Logo**  
 *Submit a vector file of your logo. (SVG, EPS, or AI files accepted.)*
 
-**Become a Marketplace Partner**  
+## Become a Marketplace Partner
+
 Are you interested in listing your One-Click App on the Linode Marketplace? Start the submission process by visiting the [App Partner](https://www.linode.com/marketplace/app-partners/) page.
