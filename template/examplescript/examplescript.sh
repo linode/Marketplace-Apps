@@ -72,7 +72,6 @@ a2dissite 000-default.conf
 
 
 # restart apache
-systemctl reload apache2
 systemctl restart apache2
 
 
