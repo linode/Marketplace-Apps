@@ -4,7 +4,7 @@
 
 The Linode Marketplace is designed to make it easier for developers and companies to share One-Click Apps with the Linode community.
 
-In addition to submitting your StackScript that will contain your application’s information to display in the Linode Cloud Manager, Linode requires additional information and brand assets for your Marketplace listing on Linode.com. Submit the following required information as a .txt or .md file along with your StackScript and assets folder in your submission pull request.
+In addition to submitting your [StackScript](https://www.linode.com/docs/platform/stackscripts/) that will contain your application’s information to display in the Linode Cloud Manager, Linode requires additional information and brand assets for your Marketplace listing on Linode.com. Submit the following required information as a .txt or .md file along with your StackScript and assets folder in your submission pull request.
 
 ## App Information
 
