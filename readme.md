@@ -41,7 +41,7 @@ Linode’s Marketplace listings features gradient backgrounds and a prominent lo
 *Linode’s Marketplace listings feature gradient hero graphics to showcase brand colors. Please select a brand color to show on the right side of the gradient. If left blank, Linode will substitute the secondary brand color with black.*
 
 **Logo**  
-*Submit a vector file of your logo. (SVG, EPS, or AI files accepted.)*
+*Submit vector files of your app's logo in white and full color. (SVG, EPS, or AI files accepted.)*
 
 ## Become a Marketplace Partner
 
