@@ -1,25 +1,37 @@
-# Linode One-Click App Marketplace Template
-
-In addition to submitting your StackScript that will contain your application’s information to display in Cloud Manager, Linode requires additional information and brand assets for your listing in the Marketplace on Linode.com. Use this document as a template to submit the required information as a .txt or .md file along with your StackScript and assets folder in your submission pull request.
-
 ## App Information
 
 ### App Name
 
+Yacht
+
 ### App description
-A short description (100-125 words) to go with your app listing in Marketplace on Linode.com. Note that this description is subject to edits before publication.
+**Keep in mind, this is still in alpha and is not recommended for production use yet**<br>
+
+A web interface for managing docker containers with an emphasis on templating to provide easy deployments. The goal of Yacht is to make docker easy for anyone to use and manage. Templates, template variables, and an intuitive UI make that goal possible.
 
 ### Version Number
-
+v0.0.5-alpha
 ### Support URL
-All apps must have a designated support URL to direct users to a resource like a Contact form, specific Community forum, or active social media account they can contact for help.
+* Repo: https://github.com/SelfhostedPro/Yacht/issues
+* Discord: https://discord.gg/KpKutvC
+* Email: info@selfhosted.pro
 
 ### Operating System
-One-Click Apps currently support Debian 9, Debian 10,  CentOS 7, Ubuntu 18.04 LTS, and Ubuntu 16.04 LTS.
+Debian 9 and Debian 10
 
 ### Documentation
-Providing thorough technical documentation is a requirement of submitting a One-Click App to Linode’s Marketplace for both testing purposes and publishing the Doc to our Docs Library. Documentation example: https://www.linode.com/docs/platform/one-click/deploying-wordpress-with-one-click-apps/
-Add your documentation as an additional file in your pull request or add a link to documentation on your company website.
+Getting Started:
+
+https://yacht.sh/Installation/gettingstarted/
+
+Docker-compose:
+
+https://yacht.sh/Advanced/docker-compose/
+
+# Would be good to include this in some sort of information section:
+If you've enabled docker-compose support place your docker-compose project folders in /opt/Yacht/compose/<project-name>
+
+Yacht will be available on port 8000 with the credentials you provided.
 
 ## App Assets
 
@@ -27,13 +39,11 @@ Linode’s Marketplace listings features gradient backgrounds and a prominent lo
 
 ### Brand color 1
 (HEX code)
-Linode’s Marketplace listings feature gradient hero graphics to showcase brand colors. Please select a brand color to show on the left side of the gradient.
+#41b883
 
 ### Brand color 2
 (HEX code)
-Linode’s Marketplace listings feature gradient hero graphics to showcase brand colors. Please select a brand color to show on the right side of the gradient. If left blank, Linode will substitute the secondary brand color with black.
+#c4c4c4
 
 ### Logo
-Submit a vector file of your logo. (SVG, EPS, or AI files accepted.)
-
-Submit assets in a folder within your pull request.
+Light and dark logo included
