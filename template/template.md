@@ -29,10 +29,11 @@ Docker-compose:
 https://yacht.sh/Advanced/docker-compose/
 
 # Would be good to include this in some sort of information section:
+```
 If you've enabled docker-compose support place your docker-compose project folders in /opt/Yacht/compose/<project-name>
 
 Yacht will be available on port 8000 with the credentials you provided.
-
+```
 ## App Assets
 
 Linode’s Marketplace listings features gradient backgrounds and a prominent logo display, as well as the logos in Cloud Manager. Please follow the directions for submitting design assets. Application submissions will not be accepted without the required assets.

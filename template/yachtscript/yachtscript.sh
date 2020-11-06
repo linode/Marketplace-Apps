@@ -2,6 +2,8 @@
 #<UDF name="YEMAIL" Label="Yacht Email" example="admin@yacht.local" default="admin@yacht.local" />
 #<UDF name="YPASSWORD" Label="Yacht Password" example="Password" />
 #<UDF name="COMPOSE_SUPPORT" Label="Yacht Compose Support" example="Yes" default="Yes" oneof="Yes,No" />
+#<UDF name="YACHT_THEME" Label="Yacht Theme" example="Default" default="Default" oneof="Default,RED,OMV" />
+
 
 source <ssinclude StackScriptID="401712">
 exec 1> >(tee -a "/var/log/stackscript.log") 2>&1
@@ -33,7 +35,7 @@ echo $COMPOSE_SUPPORT
 echo $YEMAIL
 
 if [ "$COMPOSE_SUPPORT" == "Yes" ]; then
-    mkdir -p /opt/Yacht/compose
+    mkdir -p /opt/Yacht/compose/example
     docker volume create yacht_data
     docker run -d \
         --name=yacht \
@@ -42,9 +44,12 @@ if [ "$COMPOSE_SUPPORT" == "Yes" ]; then
         -v yacht_data:/config \
         -v /opt/Yacht/compose:/compose \
         -e COMPOSE_DIR=/compose/ \
+        -e THEME=$YACHT_THEME \
         -e ADMIN_EMAIL=$YEMAIL \
         -e ADMIN_PASSWORD=$YPASSWORD \
         selfhostedpro/yacht:latest
+    printf "\nThe default compose directory is /opt/Yacht/compose.\nAn example project has been added there." > /etc/update-motd.d/99-yacht
+    curl -L https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/yacht/Template/Compose/example/docker-compose.yml -o /opt/Yacht/compose/example/docker-compose.yml
 elif [ "$COMPOSE_SUPPORT" == "No" ]; then
     docker volume create yacht
     docker run -d \
@@ -52,10 +57,11 @@ elif [ "$COMPOSE_SUPPORT" == "No" ]; then
         -p 8000:8000 \
         -v /var/run/docker.sock:/var/run/docker.sock \
         -v yacht_data:/config \
+        -e THEME=$YACHT_THEME \
         -e ADMIN_EMAIL=$YEMAIL \
         -e ADMIN_PASSWORD=$YPASSWORD \
         selfhostedpro/yacht:latest
-    printf "\nThe default compose directory is /opt/Yacht/compose.\nAn example project has been added there." > /etc/update-motd.d/99-yacht
+    
 fi
 
 # Cleanup
