@@ -47,7 +47,7 @@ Linode’s Marketplace listings features gradient backgrounds and a prominent lo
 #c4c4c4
 
 ### Logo
-Light and dark logo included
+Light and dark logo included in assets folder and zip file.
 
 Light:
 ![light](assets/logo-light.svg)
