@@ -1,0 +1,29 @@
+# Linode Node.js Stack One-Click App
+
+## App Information
+
+### App Name
+Node.js
+
+### App description
+Build Node.js-based applications.
+[Node.js](https://nodejs.dev/) is a free, open-sourced, cross-platform JavaScript run-time environment that lets developers write command line tools and server-side scripts outside of a browser.
+Upload your existing Node.js application code to your new app or use a Node.js framework to write a new application on the Linode. 
+
+### Version Number
+1.0.0
+
+### Support URL
+https://github.com/Abberit/abberit-cloud/issues
+
+### Operating System
+Debian 10
+
+### Documentation
+[Deploying Node.js One Click App:](./deploying-nodejs-with-marketplace-apps/index.md)
+
+./deploying-nodejs-with-marketplace-apps/index.md
+
+## App Assets
+
+https://nodejs.org/en/about/resources/
