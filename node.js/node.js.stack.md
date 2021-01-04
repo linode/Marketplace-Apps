@@ -1,4 +1,4 @@
-# Linode Node.js Stack One-Click App
+# Node.js Stack One-Click App
 
 ## App Information
 
