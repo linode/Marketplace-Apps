@@ -86,5 +86,5 @@ The Node.js Stack Marketplace App will install the following software on your Li
 
 | **Software** | **Description** |
 |:--------------|:------------|
-| [**Docker**](https://docker.com) | Modern platform which can be used to manager your Node.js application and its components such as Redis, MySQL, PostgreSQL, or Nginx.|
+| [**Docker**](https://docker.com) | Modern platform which can be used to manage your Node.js application and its components such as Redis, MySQL, PostgreSQL, or Nginx.|
 | [**Abberit App Services (Admin Panel)**](https://abberit.io) | Admin Panel which you can use to simplify day to day operations with your Node.js application and Docker platform. |
