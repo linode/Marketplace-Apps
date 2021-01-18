@@ -28,7 +28,7 @@ For any support questions you can reach us:
 
 **Operating System**  
 
-Ubuntu 18.04 LTS
+Debian 9/10
 
 
 **Documentation**  

@@ -8,9 +8,9 @@ exec 1> >(tee -a "/var/log/stackscript.log") 2>&1
  export DEBIAN_FRONTEND=noninteractive
  apt-get update -y
 
-# <UDF name="mist_email" label="Mist's email."/>
+# <UDF name="mist_email" label="Mist admin user's email." example="Set your admin user's email."/>
 
-# <UDF name="mist_password" label="Mist's password."/>
+# <UDF name="mist_password" label="Mist admin user's password." example="Set your admin user's password."/>
 
 ## install docker
 sudo apt-get install -y \
