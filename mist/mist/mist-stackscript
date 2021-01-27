@@ -44,6 +44,11 @@ export LATEST_TAG="$(curl -sI "${MIST_CE_REPO}" | grep -Po 'tag\/\K(v\S+)')"
 
 wget https://github.com/mistio/mist-ce/releases/download/$LATEST_TAG/docker-compose.yml
 
+# set CORE_URI
+mkdir settings
+export IP=$(ip r | grep /24 | grep -Eo "([0-9]{1,3}[\.]){3}[1-9]{1,3}")
+echo 'CORE_URI="http://'$IP'"' > settings/settings.py
+
 docker-compose up -d
 
 while !(curl -sSLf http://localhost >/dev/null); do
