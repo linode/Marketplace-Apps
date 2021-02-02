@@ -1,4 +1,4 @@
-# Linode Node.js Stack One-Click App
+# Node.js Stack One-Click App
 
 ## App Information
 
@@ -6,7 +6,7 @@
 Node.js
 
 ### App description
-Build Node.js-based applications.
+Build Node.js-based applications and manage them with Admin Panel by Abberit.
 [Node.js](https://nodejs.dev/) is a free, open-sourced, cross-platform JavaScript run-time environment that lets developers write command line tools and server-side scripts outside of a browser.
 Upload your existing Node.js application code to your new app or use a Node.js framework to write a new application on the Linode. 
 
