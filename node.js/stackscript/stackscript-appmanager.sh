@@ -68,7 +68,7 @@ sudo htpasswd -b -c /etc/abberit/.htpasswd $ABBERITUSER $ABBERITPASSWORD
 ## common network for all services:
 docker network create abnet
 
-docker pull abberit/ab-dev:0.1.8
+docker pull abberit/ab-dev:1.0.1
 docker run \
   -d \
   --restart unless-stopped \
@@ -77,7 +77,7 @@ docker run \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v /ab/sites/:/ab/sites \
   -v /etc/abberit/.htpasswd:/etc/abberit/.htpasswd \
-  abberit/ab-dev:0.1.8
+  abberit/ab-dev:1.0.1
 # `-d ` run detached, i.e. no console output will be shown in main console \
 # `--restart unless-stopped ` restart always, unless the customer specifically stopped it \
 # `-p 80:8080` map port 80 to container's port 8080 \
@@ -109,13 +109,13 @@ do
 done
 
 # Create the initial node app:
-curl --user "$ABBERITUSER:$ABBERITPASSWORD" --request POST --url http://localhost:8081/api/webapp/app/defaultNodeApp \
+curl --user "$ABBERITUSER:$ABBERITPASSWORD" --request POST --url http://localhost:8081/api/webapp/app/defaultApp \
      --header 'content-type: application/json' \
-     --data '{"appType":"node","hostToAppPortMap":{},"envVars":{},"nginxSettings":[{"listen":"80","serverName":"'$vmIP'","proxyPass":"defaultNodeApp"}]}' \
+     --data '{"appType":"node","hostToAppPortMap":{},"envVars":{"PORT": "80"},"nginxSettings":[{"listen":"80","serverName":"'$vmIP'","proxyPass":"defaultApp"}]}' \
      --max-time 120
 
 # Start the app:
-curl --user "$ABBERITUSER:$ABBERITPASSWORD" --request POST --url http://localhost:8081/api/webapp/start/defaultNodeApp \
+curl --user "$ABBERITUSER:$ABBERITPASSWORD" --request POST --url http://localhost:8081/api/webapp/start/defaultApp \
      --max-time 60
 
 # cleanup -----------------------------------------------------------------------------------------

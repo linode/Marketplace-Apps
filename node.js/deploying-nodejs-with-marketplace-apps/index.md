@@ -61,24 +61,7 @@ After your Node.js stack has finished deploying, you can:
 <your domain name>. 3312 IN A <your IP>
 ```
 
-- Set up free SSL using certbot:
-    - Obtain free SSL certificate:
-      1. Stop your Node.js application in Admin Panel.
-      1. Login to your VM via SSH.
-      2. Execute docker image of certbot: `docker run -it --rm --name certbot -p 80:80 -p 443:443 -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" certbot/certbot certonly`
-      4. Start your Node.js application in Admin Panel.
-    - Update your Node.js application to use the SSL certificate:
-```javascript
-const dir = "/etc/letsencrypt/live/" + <your domain name>
-const options = {
-  key: fs.readFileSync(`${dir}/privkey.pem`),
-  cert: fs.readFileSync(`${dir}/cert.pem`)
-};
-const httpsServer = options !== null ? https.createServer(options, requestListener) : undefined;
-httpsServer.listen(httpsPort, hostname, () => {
-  console.log(`Server running at https://${hostname}:${httpsPort}/. Access via https://localhost:${httpsPort}`);
-});
-```
+- [Set up free SSL](https://abberit.io/docs/app-https/#obtain-free-ssl-certificate-using-certbot) using certbot.
 
 ### Software Included
 
@@ -87,4 +70,4 @@ The Node.js Stack Marketplace App will install the following software on your Li
 | **Software** | **Description** |
 |:--------------|:------------|
 | [**Docker**](https://docker.com) | Modern platform which can be used to manage your Node.js application and its components such as Redis, MySQL, PostgreSQL, or Nginx.|
-| [**Abberit App Services (Admin Panel)**](https://abberit.io) | Admin Panel which you can use to simplify day to day operations with your Node.js application and Docker platform. |
+| [**Abberit App Services (Admin Panel)**](https://abberit.io/docs/) | Admin Panel which you can use to simplify day to day operations with your Node.js application and Docker platform. |
