@@ -54,7 +54,7 @@ cpanelinstall() {
     echo "Running cPanel/WHM Marketplace Script."
     echo "We will wait for cPanel/WHM installation to complete to prevent conflicts. JetBackup will be installed after cPanel/WHM has completed."
     echo "This could take a while. Please do not exit or kill the script while it's running."
-    source /root/ssinclude-595742 >>/var/log/stackscript-595742.log 2>&1 &
+    source /root/ssinclude-595742 >>/var/log/stackscript-595742.log 2>&1
     
 }
 
@@ -76,22 +76,6 @@ check_yum_processes() {
 
 }
 
-## Check whether the cPanel/WHM install is completed before continuing.
-check_cpinstall() {
-    echo "$sspid"
-    checkcPanel=$(ps -p $sspid | grep -v 'PID' | awk '{print $1}')
-    #
-    while [[ ! -z $checkcPanel ]]; do
-        sleep 30
-        echo "Waiting for cPanel/WHM installation to complete. This could take a while. Please do not exit or kill the script while it's running."
-        checkcPanel=$(ps -p $sspid | grep -v 'PID' | awk '{print $1}')
-        if [[ -z "$checkcPanel" ]]; then
-            echo "cPanel/WHM Installation Completed!"
-            break
-        fi
-    done
-
-}
 
 ## This installs the JetApps Repo.
 
