@@ -2,35 +2,34 @@
 
 exec 1> >(tee -a "/var/log/stackscript.log") 2>&1
 
-# System Updates updates
-apt-get -o Acquire::ForceIPv4=true update -y
-DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" install grub-pc
-apt-get -o Acquire::ForceIPv4=true update -y
+# Update your system
+apt update -y
 
-# Install the dependencies & add Docker to the APT repository
-apt install -y apt-transport-https ca-certificates curl software-properties-common gnupg2
-curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+# Upgrade your system
+apt upgrade -y
 
-# Update & install Docker-CE
-apt update
-apt install -y docker-ce
+# Install packages over https
+apt install apt-transport-https ca-certificates curl software-properties-common -y
 
-curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+# Add the GPG key for the official Docker repository to your system
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-# Check to ensure Docker is running and installed correctly
-systemctl status docker
-docker -v
+# Add the Docker repo to your APT sources
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 
-echo 'Acquire::ForceIPv4 "true";' > /etc/apt/apt.conf.d/99force-ipv4
-export DEBIAN_FRONTEND=noninteractive 
-apt-get upgrade -y
+# Update the package database with the new Docker Packages
+apt-get update -y
 
+# Install from the Docker repo instead of the default Ubuntu repo
+apt-cache policy docker-ce
+
+# Install Docker 
+apt install docker-ce -y
+
+# Install Docker-Compose
+apt-get install docker-compose -y 
 
 wget https://raw.githubusercontent.com/Peppermint-Lab/Peppermint/master/docker-compose.yml
-
 docker-compose up -d
 
 rm /root/StackScript
