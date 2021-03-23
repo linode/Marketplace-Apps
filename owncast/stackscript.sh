@@ -80,7 +80,7 @@ cat > /etc/motd <<EOF
 ##     ## ##  ##  ## ##   ### ##    ## ##     ## ##    ##    ##    
  #######   ###  ###  ##    ##  ######  ##     ##  ######     ##    
 
-For help and documentation visit: htts://owncast.online/docs
+For help and documentation visit: https://owncast.online/docs
 
 EOF
 
