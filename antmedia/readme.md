@@ -1,5 +1,5 @@
 ### App Name
-Ant Media Server Enterprise Edition
+Ant Media Server Community Edition
 
 ### App Description
 Ant Media Server Enterprise Edition is Highly Scalable Live Video Streaming Platform with Ultra Low Latency. It supports WebRTC Live Streaming, in addition to CMAF and HLS streaming. It can be ingested through RTMP or WebRTC or HLS. Any IP Camera can be connected through RTSP or ONVIF. It also enables Live Restreaming to Social Media Platforms. All codes H.264, H.265, VP8 are enabled and also GPU based encoding is also available.
