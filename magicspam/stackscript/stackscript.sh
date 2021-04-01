@@ -1,10 +1,10 @@
 #!/bin/bash
-# <UDF name="web_panel" Label="The web panel to install alongside with MagicSpam. Please make sure to choose the appropriate Image for the selected web panel. For more information, please refer to the MagicSpam App Information Sidebar." oneof="cPanel,Plesk">
-# <UDF name="ms_license_key" Label="The MagicSpam license key. Please make sure to use the appropriate license key for the selected web panel. For more information, please refer to the MagicSpam App information sidebar.">
-# <UDF name="hostname" label="The server hostname.">
+# <UDF name="control_panel" Label="The Control Panel to deploy alongside with MagicSpam. Make sure to select an Image supported by the selected Control Panel. For more information, please refer to the MagicSpam App Information Sidebar." oneof="cPanel,Plesk">
+# <UDF name="ms_license_key" Label="The MagicSpam license key. Please make sure to use the appropriate license key for the selected Control Panel. For more information, please refer to the MagicSpam App information sidebar.">
+# <UDF name="hostname" label="The server's hostname.">
 
-# source the stackscript for the selected web panel
-if [ "$WEB_PANEL" == "cPanel" ]; then
+# source the stackscript for the selected control panel
+if [ "$CONTROL_PANEL" == "cPanel" ]; then
     # redirect ALL output to the stackscript log for future troubleshooting
     exec 1> >(tee -a "/var/log/stackscript.log") 2>&1
 
@@ -16,13 +16,13 @@ if [ "$WEB_PANEL" == "cPanel" ]; then
     echo $HOSTNAME > /etc/hostname
     hostname -F /etc/hostname
     echo $IPADDR $HOSTNAME >> /etc/hosts
-elif [ "$WEB_PANEL" == "Plesk" ]; then
+elif [ "$CONTROL_PANEL" == "Plesk" ]; then
     # Plesk Marketplace App install
-    # NOTE: do not redirect output to the stacksript log in this stackscript to
-    #       avoid duplicate log lines as the Plesk stackscript already redirects
+    # NOTE: do not redirect output to the stacksript log to avoid duplicate log
+    #       lines as the Plesk stackscript already redirects to it
     source <ssinclude StackScriptID=593835>
 else
-    echo "Invalid web panel option detected. Aborting..."
+    echo "Invalid control panel option detected. Aborting..."
     exit 1
 fi
 
