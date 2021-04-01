@@ -41,8 +41,8 @@ MagicSpam supports the same operating systems as cPanel and Plesk, as it's desig
 
 ### Documentation
 
-* [Deploying MagicSpam with One-Click Apps](documentation/linode_marketplace_magicspam_app_page)
-* [MagicSpam One-Click Apps Sidebar](documentation/linode_manager_magicspam_information_sidebar)
+* [Deploying MagicSpam with One-Click Apps](documentation/linode_marketplace_magicspam_app_page.md)
+* [MagicSpam One-Click Apps Sidebar](documentation/linode_manager_magicspam_information_sidebar.md)
 
 ## App Assets
 
