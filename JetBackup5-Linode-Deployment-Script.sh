@@ -98,12 +98,20 @@ install_jetbackup() {
     jetapps --install ${RELEASE} ${UDF_TIER}
     if [ ${RELEASE} = "jetbackup5-linux" ]; then
         echo ""
-        echo "IMPORTANT: Firewalld and SELinux are ** enabled ** by default in CentOS and can interfere with JetBackup."
-        echo "Before you start configuring JetBackup, please ensure that your firewall allows access on port 3035."
+        echo "NOTE: Firewalld and SELinux are ** enabled ** by default in CentOS and can interfere with JetBackup."
         echo ""
-        echo "You can generate a login URL after installation by typing "jb5login" "
+        echo "After installing JetBackup, please ensure your firewall and/or SELinux isn't blocking access on required ports."
+        echo "Adding a Firewalld rule to open port 3035 using command "firewall-cmd --permanent --add-port=3035/tcp""
+        echo "Port 3035 must be open for access to the JetBackup 5 Linux UI."
+        firewall-cmd --permanent --add-port=3035/tcp
+        firewall-cmd --reload
+        echo ""
+        echo "To generate a one-time JetBackup 5 login URL after installation type jb5login in the terminal."
     else
+        echo "To quickly access WHM via a one-time login URL, type "whmlogin" in the terminal."
+        echo "For information on how to access cPanel/WHM, please visit https://docs.cpanel.net/knowledge-base/accounts/how-to-log-in-to-your-server-or-account/#how-to-access-whm "
         echo ""
+        echo "JetBackup 5 can be accessed via WHM Home > Plugins > JetBackup 5."
 
     fi
 }
@@ -124,20 +132,17 @@ if [ ! -d "${JB_DIR}" ]; then
     echo "JetBackup 5 Installation Started."
     install_jetapps_repo
     install_jetbackup
-    echo "Verifying JetBackup version..."
     INSTALLED_VERSION="$(jetbackup5 --version | cut -d ' ' -f 1,3,4 | sed "2 d")"
+    echo "Please verify that your server configuration, firewall, etc are set up and configured properly to avoid issues using JetBackup."
+    echo "SELinux may cause issues with backup jobs in JetBackup. Please disable SELinux to ensure proper function of cPanel (if installed) and JetBackup 5. "
+    echo "For more information on disabling SELinux configuration, see http://selinuxproject.org/page/Guide/Mode "
     echo ""
-    echo "${INSTALLED_VERSION} Installed!"
-    echo ""
-    echo "NEXT STEPS:"
-    echo "Please verify your server configuration, firewall, etc are set up and configured properly. You may encounter issues using JetBackup if these are not configured properly."
-    echo ""
-    echo "Review the JetBackup 5 "Getting Started" Guide at https://docs.jetbackup.com/v5.1/adminpanel/gettingStarted.html"
-    echo ""
+    echo "Review the JetBackup 5 Getting Started Guide at https://docs.jetbackup.com/v5.1/adminpanel/gettingStarted.html"
+    echo "${INSTALLED_VERSION} Successfully Installed!"
     echo "StackScript Deployment Completed."
 
 elif [ -d "${JB_DIR}" ]; then
-    echo "Aborted: JetBackup 5 Installation already exists on the server. Please contact support@jetapps.com for questions or review the documentation: https://docs.jetbackup.com/v5.1/adminpanel/index.html "
+    echo "Aborted: JetBackup 5 Installation already exists on the server. Please contact support@jetapps.com or review the documentation: https://docs.jetbackup.com/v5.1/adminpanel/index.html "
 fi
 
 # Clean StackScripts. 
