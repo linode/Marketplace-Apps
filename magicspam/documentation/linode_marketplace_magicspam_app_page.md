@@ -14,7 +14,7 @@ Get started with MagicSpam on Linode with the MagicSpam One-Click App.
 
 As MagicSpam is designed to integrate and run alongside with Control Panels, the MagicSpam One-Click App will also deploy the selected Control Panel (e.g. cPanel or Plesk). Additionally, a MagicSpam license key is required to deploy MagicSpam on Linode, which you can purchase through the [MagicSpam Webstore](https://www.magicspam.com/store.php). Please make sure to purchase the appropriate license key for the selected Control Panel.
 
-If you want to deploy MagicSpam onto an existing Linode running a supported Control Panel, please install MagicSpam on your server by following these installation guides:
+If you want to deploy MagicSpam onto an existing Linode running a supported Control Panel, please install MagicSpam on your server after purchasing the license key by following these installation guides:
 
 * [MagicSpam for cPanel Installation Guide](https://www.magicspam.com/download/products/MSWHMC/InstallationGuide.pdf)
 * [MagicSpam for Plesk Installation Guide](https://www.magicspam.com/download/products/MSPPRO/InstallationGuide.pdf)

@@ -41,21 +41,33 @@ MagicSpam supports the same operating systems as cPanel and Plesk, as it's desig
 
 ### Documentation
 
+The MagicSpam documentation are contained within the documentation directory.
+
 * [Deploying MagicSpam with One-Click Apps](documentation/linode_marketplace_magicspam_app_page.md)
 * [MagicSpam One-Click Apps Sidebar](documentation/linode_manager_magicspam_information_sidebar.md)
+
+Note that MagicSpam documentation differs from other Apps documentation as:
+
+* MagicSpam needs to run alongside with a supported Control Panel
+* MagicSpam needs a license key which can be purchased from our webstore
+
+So additional information on the matter has been included in the documentation to inform and guide users.
 
 ## App Assets
 
 ### Brand color 1 (HEX code)
+
 9C001B
 
 ### Brand color 2 (HEX code) (If left blank, Linode will substitute the secondary brand color with black)
+
 F4AC45
 
 ### Logo
+
 The MagicSpam App's logo in full color and white are contained within the assets directory.
 
 [MagicSpam Logo Colored](assets/magicspam_logo_colored.ai)
-[MagicSpam Logo White](assets/magicspam_logo_white.ai)
+[MagicSpam Logo White](assets/magicspam_logo_white.svg)
 
 Note that the logos are also contained in the [assets.zip](assets.zip) file.
