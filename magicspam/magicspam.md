@@ -67,7 +67,7 @@ F4AC45
 
 The MagicSpam App's logo in full color and white are contained within the assets directory.
 
-[MagicSpam Logo Colored](assets/magicspam_logo_colored.ai)
-[MagicSpam Logo White](assets/magicspam_logo_white.svg)
+* [MagicSpam Logo Colored](assets/magicspam_logo_colored.ai)
+* [MagicSpam Logo White](assets/magicspam_logo_white.svg)
 
 Note that the logos are also contained in the [assets.zip](assets.zip) file.
