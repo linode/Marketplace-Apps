@@ -22,7 +22,7 @@ v0.1.7.8-alpha
 
  - Repo https://github.com/Peppermint-Lab/Peppermint/issues
  - Discord https://discord.com/invite/2FnCxPk4wx
- - Email japotts16@gmail.com
+ - Email jack@pmint.dev
 
 
 ### Operating System
