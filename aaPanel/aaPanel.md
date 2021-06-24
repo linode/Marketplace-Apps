@@ -14,7 +14,7 @@ aaPanel provides the one-click function such as one-click install LNMP/LAMP deve
 https://forum.aapanel.com/
 
 **Operating System**  
-*One-Click Apps currently support Debian 10, CentOS 7, Ubuntu 20.04 LTS.*
+*One-Click Apps currently support CentOS 7+
 
 **Documentation**  
 https://doc.aapanel.com/web/#/
