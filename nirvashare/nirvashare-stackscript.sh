@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# Script to install NirvaShare applications on Linode
+# Installs docker, docker-compose, postgres db, nirvashare admin and user share app
+#
+#
 # <UDF name="dbpassword" Label="Database Password" />
 
 
