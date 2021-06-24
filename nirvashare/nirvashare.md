@@ -29,7 +29,7 @@ To tryout advanced features contact us to obtain trial license.
 
 Getting started after deploying NirvaShare
 
-After NirvaShare has finished installing, you can access the app instance by visiting your Linode’s IP address(for example, http://192.0.12.100) in a web browser. 
+After NirvaShare has finished installing, you can access the app instance by visiting your Linode’s IP address(for example, http://192.0.12.100) in a web browser. Sometimes installation takes time after the node is provisioned, please wait for 3-4 minutes.
 
 Please refer documentation at https://nirvashare.com/installation-of-nirvashare-on-linode
 
