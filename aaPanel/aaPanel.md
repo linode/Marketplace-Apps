@@ -22,5 +22,5 @@ https://doc.aapanel.com/web/#/
 ## App Assets
 
 **Brand Color 1 (HEX Code)**  
-
+RGB
 **Brand Color 2 (HEX Code)**  
