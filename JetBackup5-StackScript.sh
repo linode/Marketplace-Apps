@@ -16,10 +16,10 @@ exec 1> >(tee -a "/var/log/stackscript.log") 2>/var/log/stackscript-debug.log
 ### VARIABLES ###
 CONTROL_PANEL="${CONTROL_PANEL}"
 RELEASE_TIER="${RELEASE_TIER}"
-installVersion="none"
-jbhostname="none"
+installVersion=""
+jbhostname=""
 JB_DIR="/usr/local/jetapps/etc/jetbackup5"
-echo "PID: $$"
+echo "StackScript Started with PID: $$"
 
 if [[ -z ${CONTROL_PANEL} ]]; then 
 echo "Error: No panel selected. Please select a panel to deploy JetBackup."
@@ -30,19 +30,17 @@ exit 1
 fi
 
 ## Check yum processes to prevent yum lock queue. This is necessary because cPanel takes the yum lock for 5-10+ minutes and is better able to hold the lock.
-check_yum_processes() {
 
-  numProcess=$(ps -ef | grep 'yum' | grep -v 'grep' | wc | awk '{ gsub(/^[ \t]+|[ \t]+$/, ""); print $1}')
+yumlockcheck() {
 
-  while [ $numProcess -ge 1 ]; do
-    echo "Waiting for yum lock to clear. There are ${numProcess} tasks running. This could take a while. Please do not exit or kill the script while it's running."
+local numProcess=$(pgrep -c yum)
 
-    sleep 5
-    numProcess=$(ps -ef | grep 'yum' | grep -v 'grep' | wc | awk '{ gsub(/^[ \t]+|[ \t]+$/, ""); print $1}')
-    if [ $numProcess -eq 0 ]; then
-      break
-    fi
-  done
+until (( $numProcess == 0 ))
+do 
+echo "Waiting for yum lock to clear. This could take a while. Please do not exit or kill the script while it's running."
+sleep 5
+local numProcess=$(pgrep -c yum)
+done
 
 }
 
@@ -54,20 +52,24 @@ cpanelinstall() {
   echo "We will wait for cPanel/WHM installation to complete to prevent conflicts. JetBackup will be installed after cPanel/WHM has completed."
   echo "This could take a while. Please do not exit or kill the script while it's running."
   echo "You can track the progress of cPanel/WHM with: tail -f /var/log/stackscript-595742.log "
-  source /root/ssinclude-595742 >>/var/log/stackscript-595742.log 2>&1
+  (source /root/ssinclude-595742 >>/var/log/stackscript-595742.log 2>&1)
+  yumlockcheck
 
 }
 
 
 install_jetbackup() {
+
   echo "Verifying yum is not in use by other processes..."
   rpm --import http://repo.jetlicense.com/centOS/RPM-GPG-KEY-JETAPPS
-  check_yum_processes
   echo "Installing JetApps Repository"
-  yum install http://repo.jetlicense.com/centOS/jetapps-repo-latest.rpm -y -q -e 0 && yum install jetapps --disablerepo=* --enablerepo=jetapps -y
+  yumlockcheck
+  yum install http://repo.jetlicense.com/centOS/jetapps-repo-latest.rpm -y
   echo "Installing JetApps Package"
-  yum install jetapps --disablerepo=* --enablerepo=jetapps -y -q -e 0
+  yumlockcheck
+  yum install jetapps --disablerepo=* --enablerepo=jetapps -y
   echo "Installing JetBackup 5 via JetApps repository"
+  yumlockcheck
   jetapps --install ${CONTROL_PANEL} ${RELEASE_TIER}
 
 }
@@ -113,12 +115,11 @@ if [[ ! -d "${JB_DIR}" ]]; then
 
   if [[ "${CONTROL_PANEL}" = "cPanel" ]]; then
 
-    CONTROL_PANEL="jetbackup-cpanel"
+    CONTROL_PANEL="jetbackup5-cpanel"
     cpanelinstall
-    sleep 5
     install_jetbackup
     echo ""
-    echo "cPanel recommends disabling SELinux post-installation. Review cPanel Documentaition for SELinux: https://docs.cpanel.net/installation-guide/system-requirements-centos/#disable-selinux"
+    echo "cPanel recommends disabling SELinux. Review cPanel Documentaition for SELinux: https://docs.cpanel.net/installation-guide/system-requirements-centos/#disable-selinux"
     echo "Please ensure you configure your server Firewall, SELinux, etc to ensure proper function of cPanel/WHM and JetBackup."
     echo "For information on how to access cPanel/WHM, please visit https://docs.cpanel.net/knowledge-base/accounts/how-to-log-in-to-your-server-or-account/#how-to-access-whm "
     echo ""
