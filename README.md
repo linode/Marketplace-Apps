@@ -15,13 +15,13 @@ JetBackup 5 is our fastest, most secure, versatile, and reliable version yet! No
 
 ### Support URL
 
-24/7/365 Technical Support: support@jetapps.com
+24/7/365 Technical Support
 
-Contact Us: https://www.jetapps.com/#contact
+Contact: https://www.jetapps.com/#contact
 
 ### Operating System
 
-CentOS 7, CentOS 8, CentOS Stream 8
+CentOS 7, CentOS 8, AlmaLinux 8
 
 ### Documentation
 
