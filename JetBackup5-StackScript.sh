@@ -1,145 +1,76 @@
 #!/bin/bash
-set -ex
-# JetBackup UDF Variables
-# <UDF name="CONTROL_PANEL" Label="Would you like to install cPanel/WHM with JetBackup 5, or install JetBackup 5 for Linux. (No Control Panel)." default="cPanel" oneof="cPanel,Linux" />
-# <UDF name="RELEASE_TIER" Label="Select your JetBackup Release Tier." default="stable" example="" oneof="stable,beta,edge" />
-# The next line makes the cPanel StackScript available for the cpanelinstall function on deployment of the linode. Do not remove this line.
+# JetBackup StackScript UDF Variables
+# <UDF name="CONTROLPANEL" Label="Choose a Control Panel to use with JetBackup 5. cPanel/WHM or Linux (No Control Panel)" default="cPanel/WHM" oneof="cPanel/WHM,Linux" />
+# <UDF name="RELEASETIER" Label="Choose a JetBackup Release Tier." default="stable" oneof="stable,beta,edge" />
+#
+# The next line makes the Official cPanel StackScript available if cPanel/WHM is selected as the control panel. Do not remove this line.
 # source <ssinclude StackScriptID="595742">
 #
 # Log File Paths:
-# Primary Log for this script: /var/log/stackscript.log
-# cPanel/WHM's installation: /var/log/stackscript-595742.log 
+# StackScript Log: /var/log/stackscript.log
+# cPanel/WHM installation: /var/log/stackscript-595742.log
 # Debugging: /var/log/stackscript-debug.log
 #
 exec 1> >(tee -a "/var/log/stackscript.log") 2>/var/log/stackscript-debug.log
+echo "PID: $$"
+CONTROLPANEL=${CONTROLPANEL}
+RELEASE=${RELEASETIER}
+JBDIR="/usr/local/jetapps/etc/jetbackup5"
 
-### VARIABLES ###
-CONTROL_PANEL="${CONTROL_PANEL}"
-RELEASE_TIER="${RELEASE_TIER}"
-installVersion=""
-jbhostname=""
-JB_DIR="/usr/local/jetapps/etc/jetbackup5"
-echo "StackScript Started with PID: $$"
-
-if [[ -z ${CONTROL_PANEL} ]]; then 
+if [[ -z ${CONTROLPANEL} ]]; then
 echo "Error: No panel selected. Please select a panel to deploy JetBackup."
-exit 1 
-elif [[ -d ${JB_DIR} ]]; then
+exit 1
+elif [[ -d ${JBDIR} ]]; then
 echo "Error: JetBackup already installed. Aborting StackScript."
-exit 1 
+exit 0
 fi
 
-## Check yum processes to prevent yum lock queue. This is necessary because cPanel takes the yum lock for 5-10+ minutes and is better able to hold the lock.
-
-yumlockcheck() {
-
-local numProcess=$(pgrep -c yum)
-
-until (( $numProcess == 0 ))
-do 
-echo "Waiting for yum lock to clear. This could take a while. Please do not exit or kill the script while it's running."
-sleep 5
-local numProcess=$(pgrep -c yum)
-done
-
-}
-
-
+echo "Installing JetApps Repository"
+rpm --import http://repo.jetlicense.com/centOS/RPM-GPG-KEY-JETAPPS
+yum -y -q install http://repo.jetlicense.com/centOS/jetapps-repo-latest.rpm
+yum -y -q install jetapps --disablerepo=* --enablerepo=jetapps
+echo "JetApps Repository Successfully Installed."
 
 cpanelinstall() {
 
-  echo "Running cPanel/WHM Marketplace StackScript."
-  echo "We will wait for cPanel/WHM installation to complete to prevent conflicts. JetBackup will be installed after cPanel/WHM has completed."
-  echo "This could take a while. Please do not exit or kill the script while it's running."
-  echo "You can track the progress of cPanel/WHM with: tail -f /var/log/stackscript-595742.log "
-  (source /root/ssinclude-595742 >>/var/log/stackscript-595742.log 2>&1)
-  yumlockcheck
+echo "Running cPanel/WHM Marketplace StackScript. You can track the progress of cPanel/WHM with: tail -f /var/log/stackscript-595742.log "
+(source /root/ssinclude-595742 >>/var/log/stackscript-595742.log 2>&1)
 
 }
 
+# JETBACKUP 5 FOR LINUX - STANDALONE INSTALLATION
 
-install_jetbackup() {
-
-  echo "Verifying yum is not in use by other processes..."
-  rpm --import http://repo.jetlicense.com/centOS/RPM-GPG-KEY-JETAPPS
-  echo "Installing JetApps Repository"
-  yumlockcheck
-  yum install http://repo.jetlicense.com/centOS/jetapps-repo-latest.rpm -y
-  echo "Installing JetApps Package"
-  yumlockcheck
-  yum install jetapps --disablerepo=* --enablerepo=jetapps -y
-  echo "Installing JetBackup 5 via JetApps repository"
-  yumlockcheck
-  jetapps --install ${CONTROL_PANEL} ${RELEASE_TIER}
-
-}
-
-notifySuccessVersion() {
-
-  installVersion="$(jetbackup5 --version | cut -d ' ' -f 1,3,4 | sed "2 d")"
-  echo "${installVersion} Successfully Installed!"
-
-}
-
-#################################
-#### MAIN SCRIPT STARTS HERE ####
-#################################
-## We verify if a JetBackup installation already exists because cPanel/WHM will auto-install JetBackup when an active license exists on the cPanel store.
-## If JB5 path doesn't exist, JetBackup 5 can be installed.
-## If JetBackup is already installed, the script will abort the installation.
-
-if [[ ! -d "${JB_DIR}" ]]; then
-
-  echo "JetBackup 5 Installation Started."
-
-  if [[ "${CONTROL_PANEL}" = "Linux" ]]; then
-    CONTROL_PANEL="jetbackup5-linux"
-    install_jetbackup
-    jbhostname=$(hostname)
-    jbhostname="https://${jbhostname}:3035"
-    echo "Adding a Firewall rule to open port 3035 using command "firewall-cmd --permanent --add-port=3035/tcp""
-    echo "Port 3035 must be open for access to the JetBackup 5 Linux UI."
-    firewall-cmd --permanent --add-port=3035/tcp
-    firewall-cmd --reload
-    echo ""
-    echo "After installing JetBackup, please ensure your firewall and/or SELinux isn't blocking access on required ports."
-    echo ""
-    echo "You must accept the End User License Agreement to use JetBackup 5.  Certain functions will be disabled until you accept the user Agreement in the UI."
-    echo "To go to JetBackup and Accept the User Agreement, go to ${jbhostname} and enter your root login credentials."
-    echo ""
-    echo "To generate a one-time JetBackup 5 login URL after installation and acceptance of the EULA type  the following command in the terminal:" 
-    echo ""
-    echo "jb5login"
-    echo ""
-  fi
-
-  if [[ "${CONTROL_PANEL}" = "cPanel" ]]; then
-
-    CONTROL_PANEL="jetbackup5-cpanel"
-    cpanelinstall
-    install_jetbackup
-    echo ""
-    echo "cPanel recommends disabling SELinux. Review cPanel Documentaition for SELinux: https://docs.cpanel.net/installation-guide/system-requirements-centos/#disable-selinux"
-    echo "Please ensure you configure your server Firewall, SELinux, etc to ensure proper function of cPanel/WHM and JetBackup."
-    echo "For information on how to access cPanel/WHM, please visit https://docs.cpanel.net/knowledge-base/accounts/how-to-log-in-to-your-server-or-account/#how-to-access-whm "
-    echo ""
-    echo "You must accept the End User License Agreement to use JetBackup 5. Certain functions will be disabled until you accept the user Agreement in the UI."
-    echo "Go to WHM > Plugins > JetBackup to confirm you have read and accept the EULA."
-    echo "To log in to cPanel/WHM as root user, please enter the following command to generate a one-time login token:"
-    echo ""
-    echo "whmlogin"
-    echo ""
-
-  fi
-
-  echo ""
-  echo "Review the JetBackup 5 Getting Started Guide at https://docs.jetbackup.com/v5.1/adminpanel/gettingStarted.html"
-  notifySuccessVersion
-  echo "StackScript Deployment Completed."
-
+if [ "${CONTROLPANEL}" = "Linux" ]; then
+echo "Installing JetBackup 5."
+package='jetbackup5-linux'
+jetapps --install $package $RELEASE
+jbhostname=$(hostname)
+jbhostname="https://${jbhostname}:3035"
+echo "Adding a Firewall rule to open port 3035. Port 3035 must be open for access to the JetBackup 5 Linux UI."
+firewall-cmd --permanent --add-port=3035/tcp
+firewall-cmd --reload
+echo "To go to JetBackup and Accept the User Agreement, go to ${jbhostname} and enter your root login credentials."
+echo "To generate a one-time JetBackup 5 login URL after installation and acceptance of the EULA type  the following command in the terminal:"
+echo "jb5login"
 fi
 
-# Clean StackScripts.
-rm /root/ssinclude*
+# JETBACKUP 5 FOR CPANEL/WHM INSTALLATION
+
+if [ "${CONTROLPANEL}" = "cPanel/WHM" ]; then
+
+package='jetbackup5-cpanel'
+cpanelinstall
+sleep 2
+echo "Installing JetBackup 5."
+jetapps --install $package $RELEASE
+echo "To log in to cPanel/WHM as root user, please enter the following command to generate a one-time login token:"
+echo ""
+echo "whmlogin"
+fi
+
+echo "Review the JetBackup 5 Getting Started Guide at https://docs.jetbackup.com/v5.1/adminpanel/gettingStarted.html"
+installVersion="$(jetbackup5 --version | cut -d ' ' -f 1,3,4 | sed "2 d")"
+echo "${installVersion} Successfully Installed!"
+rm /root/ssinclude-595742
 rm /root/StackScript
 exit 0
