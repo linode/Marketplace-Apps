@@ -6,7 +6,7 @@
 
 
 source <ssinclude StackScriptID="401712">
-exec 1> >(tee -a "/var/log/stackscript.log") 2>&1
+exec > >(tee /dev/ttyS0 /var/log/stackscript.log) 2>&1
 
 # Set hostname, configure apt and perform update/upgrade
 set_hostname

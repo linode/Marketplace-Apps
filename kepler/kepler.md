@@ -16,7 +16,7 @@ Enjoy a FREE 14-days trial to experience building websites with Kepler.
 https://help.kepler.app/
 
 **Operating System**  
-Ubuntu 18.04 LTS
+Debian 10
 
 **Documentation**  
 [Knownledge base](https://help.kepler.app/knowledgebase/)

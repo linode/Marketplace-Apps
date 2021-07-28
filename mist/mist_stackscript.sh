@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Add Logging to /var/log/stackscript.log for future troubleshooting
-exec 1> >(tee -a "/var/log/stackscript.log") 2>&1
+exec > >(tee /dev/ttyS0 /var/log/stackscript.log) 2>&1
 
 # apt-get updates
  echo 'Acquire::ForceIPv4 "true";' > /etc/apt/apt.conf.d/99force-ipv4
