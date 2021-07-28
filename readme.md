@@ -19,7 +19,7 @@ In addition to submitting your [StackScript](https://www.linode.com/docs/platfor
 *All apps must have a designated support URL to direct users to a resource like a Contact form, specific Community forum, or active social media account they can contact for help.*
 
 **Operating System**  
-*One-Click Apps currently support Debian 9, Debian 10, CentOS 7, Ubuntu 18.04 LTS, and Ubuntu 16.04 LTS.*
+*One-Click Apps currently support Debian 9, Debian 10, CentOS 7, Ubuntu 20.04 LTS.*
 
 **Documentation**  
 Providing thorough technical documentation is a requirement of submitting a One-Click App to Linode’s Marketplace for both testing purposes and publishing the Doc to our Docs Library. 
@@ -41,7 +41,7 @@ Linode’s Marketplace listings features gradient backgrounds and a prominent lo
 *Linode’s Marketplace listings feature gradient hero graphics to showcase brand colors. Please select a brand color to show on the right side of the gradient. If left blank, Linode will substitute the secondary brand color with black.*
 
 **Logo**  
-*Submit a vector file of your logo. (SVG, EPS, or AI files accepted.)*
+*Submit vector files of your app's logo in white and full color. (SVG, EPS, or AI files accepted.)*
 
 ## Become a Marketplace Partner
 
