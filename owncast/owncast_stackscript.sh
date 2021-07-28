@@ -54,7 +54,7 @@ apt-get install caddy
 
 # Configure Caddy for HTTPS proxying
 if [ -n "$SERVER_HOSTNAME" ]; then
-  
+
   cat > /etc/caddy/Caddyfile <<EOF
   ${SERVER_HOSTNAME} {
     reverse_proxy 127.0.0.1:8080
@@ -71,7 +71,6 @@ fi
 
 # Add MOTD
 cat > /etc/motd <<EOF
-
  #######  ##      ## ##    ##  ######     ###     ######  ######## 
 ##     ## ##  ##  ## ###   ## ##    ##   ## ##   ##    ##    ##    
 ##     ## ##  ##  ## ####  ## ##        ##   ##  ##          ##    
@@ -79,9 +78,7 @@ cat > /etc/motd <<EOF
 ##     ## ##  ##  ## ##  #### ##       #########       ##    ##    
 ##     ## ##  ##  ## ##   ### ##    ## ##     ## ##    ##    ##    
  #######   ###  ###  ##    ##  ######  ##     ##  ######     ##    
-
 For help and documentation visit: https://owncast.online/docs
-
 EOF
 
 echo "Owncast setup complete! Access your instance at https://${SERVER_HOSTNAME} or http://$(hostname -I | cut -f1 -d' '):8080 if you have not configured your DNS yet."
