@@ -19,7 +19,7 @@ CentOS 7, CentOS 8, Ubuntu 18.04 LTS, Ubuntu 20.04 LTS
 [Document](https://docs.litespeedtech.com/cloud/images/django/)
 
 ### Brand Color 1 (HEX Code)
-#3D596D
+#318640
 
 ### Brand Color 2 (HEX Code)
-#33CCCC
+#5CBF8A
