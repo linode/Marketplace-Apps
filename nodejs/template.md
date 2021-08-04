@@ -19,7 +19,7 @@ CentOS 7, CentOS 8, Ubuntu 18.04 LTS, Ubuntu 20.04 LTS
 [Document](https://docs.litespeedtech.com/cloud/images/nodejs/)
 
 ### Brand Color 1 (HEX Code)
-#3D596D
+#227338
 
 ### Brand Color 2 (HEX Code)
-#33CCCC
+#4CB3A3
