@@ -13,7 +13,7 @@ Latest Version
 [Email](mailto:support@litespeedtech.com)
 
 ### Operating System
-CentOS 7, CentOS 8, Ubuntu 18.04 LTS, Ubuntu 20.04 LTS
+CentOS 7, Ubuntu 18.04 LTS, Ubuntu 20.04 LTS
 
 ### Documentation
 [Document](https://docs.litespeedtech.com/cloud/images/rails/)
