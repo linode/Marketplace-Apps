@@ -1,8 +1,8 @@
 ### App Name
-cPanel LiteSpeed
+LiteSpeed cPanel
 
 ### App Description
-The cPanel LiteSpeed app automatically installs Linux, WHM/cPanel, performance LiteSpeed Web Server with a [15-Day Trial](https://docs.litespeedtech.com/licenses/trial/) license. 
+The LiteSpeed cPanel app automatically installs WHM/cPanel, performance LiteSpeed Web Server, and WHM LiteSpeed Plugin. 
 
 LiteSpeed Web Server Features:
  - HTTP/2, QUIC, HTTP/3
@@ -12,12 +12,23 @@ LiteSpeed Web Server Features:
  - Server-Level reCAPTCHA
  - One-Click Cache Acceleration
 
-cPanel WHM Plugin Features:
+WHM LiteSpeed Plugin Features:
  - Version management
  - One-click switch between Apache and LiteSpeed Web Server
  - Build PHP with LSAPI
  - Quick PHP suExec and LiteSpeed cache setups
  - License management
+
+Auto configuration:
+  - Enable PHP_SUEXEC
+  - Enable EasyApache integration
+  - Switch to LiteSpeed Web Server
+  - Cache Root Setup
+  - Disable Apache mod_ruid2
+  - Apache port offset 0
+
+Note:
+Your LiteSpeed cPanel App installation will automatically receive a free 15-day trial license on both [LiteSpeed](https://docs.litespeedtech.com/licenses/trial/) and [cPanel](https://cpanel.net/products/trial/). You must purchase a new LiteSpeed and cPanel/WHM license before the end of this trial period. At the end of your trial period your license will expire.
 
 ### Version Number
 Latest Version
