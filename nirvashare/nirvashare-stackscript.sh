@@ -46,7 +46,7 @@ services:
     restart: always
     ports:
 #      # Public HTTP Port:
-      - 80:8080
+      - 8080:8080
     environment:
       ns_db_jdbc_url: 'jdbc:postgresql://nirvashare_database:5432/postgres'
       ns_db_username: 'nirvashare'
@@ -64,7 +64,7 @@ services:
     restart: always
     ports:
 #      # Public HTTP Port:
-      - 81:8080
+      - 8081:8080
     environment:
       ns_db_jdbc_url: 'jdbc:postgresql://nirvashare_database:5432/postgres'
       ns_db_username: 'nirvashare'
@@ -92,7 +92,7 @@ networks:
 
 docker-compose -f /var/nirvashare/install-app.yml up -d
 
-rm /var/nirvashare/install-app.yml
+#rm /var/nirvashare/install-app.yml
 
 
 
