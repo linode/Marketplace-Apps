@@ -17,7 +17,7 @@ OneinStack is an open source, A PHP/JAVA Deployment Tool. Help users deploy Web 
 * [Email](mailto:lj2007331@gmail.com)
 
 ### Operating System
-One-Click Apps currently support Debian 8, Debian 9, Debian 10, CentOS 8, CentOS 7, Ubuntu 20.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 16.04 LTS.
+One-Click Apps currently support Debian 8, Debian 9, Debian 10, Debian 11, Rocky Linux 8, CentOS 8, CentOS Stream 8, CentOS 7, Ubuntu 21.04, Ubuntu 20.10, Ubuntu 20.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 16.04 LTS.
 
 ### Documentation
 * Our user docs are available at https://github.com/oneinstack/oneinstack/wiki/OneinStack-Guide.
