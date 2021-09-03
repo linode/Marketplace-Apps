@@ -1,15 +1,16 @@
 #!/bin/bash
 #<UDF name="RUNUSER" label="Run User" default="www" example="Nginx and PHP-FPM process is run as run_user" />
 #<UDF name="TIMEZONE" label="TimeZone" oneof="UTC,Asia/Shanghai"  default="UTC" />
-#<UDF name="NGINX" label="Nginx" oneof ="Do not install,Nginx,OpenResty"  default="Nginx" />
-#<UDF name="PHP" label="PHP"  oneof="Do not install,7.4,7.3,7.2,7.1,7.0,5.6,5.5,5.4,5.3"  default="7.4" />
-#<UDF name="PHPEXTENSIONS" label="PHP Extensions"  manyof="Do not install,zendguardloader,ioncube,sourceguardian,imagick,gmagick,fileinfo,imap,ldap,calendar,phalcon,yaf,yar,redis,memcached,memcache,mongodb,swoole,xdebug"  default="fileinfo,redis" />
-#<UDF name="DB" label="DB" oneof ="Do not install,MariaDB-10.5,MariaDB-10.4,MySQL-8.0,MySQL-5.7"  default="MariaDB-10.5" />
+#<UDF name="NGINX" label="Nginx" oneof ="DoNotInstall,Nginx,OpenResty"  default="Nginx" />
+#<UDF name="PHP" label="PHP"  oneof="DoNotInstall,8.0,7.4,7.3,7.2,7.1,7.0,5.6,5.5,5.4,5.3"  default="7.4" />
+#<UDF name="PHPEXTENSIONS" label="PHP Extensions"  manyof="DoNotInstall,zendguardloader,ioncube,sourceguardian,imagick,gmagick,fileinfo,imap,ldap,calendar,phalcon,yaf,yar,redis,memcached,memcache,mongodb,swoole,xdebug"  default="fileinfo,redis" />
+#<UDF name="DB" label="DB" oneof ="DoNotInstall,MariaDB-10.6,MariaDB-10.5,MySQL-8.0,MySQL-5.7"  default="MariaDB-10.6" />
 #<UDF name="DBROOTPWD" label="DB Root Password" default="oneinstack" />
-#<UDF name="JDK" label="JDK" oneof="Do not install,11.0,1.8,1.7"  default="Do not install" />
-#<UDF name="TOMCAT" label="Tomcat"  oneof="Do not install,9.0,8.5"  default="Do not install" />
-#<UDF name="PHPMYADMIN" label="Install phpMyAdmin?"  oneof="yes,no" default="no" />
+#<UDF name="JDK" label="JDK" oneof="DoNotInstall,11.0,1.8,1.7"  default="DoNotInstall" />
+#<UDF name="TOMCAT" label="Tomcat"  oneof="DoNotInstall,9.0,8.5"  default="DoNotInstall" />
+#<UDF name="NODE" label="Install NodeJs?" oneof="yes,no" default="no" />
 #<UDF name="PUREFTPD" label="Install Pure-FTPd?" oneof="yes,no" default="no" />
+#<UDF name="PHPMYADMIN" label="Install phpMyAdmin?"  oneof="yes,no" default="no" />
 #<UDF name="REDIS" label="Install Redis?" oneof="yes,no" default="no" />
 #<UDF name="MEMCACHED" label="Install Memcached?" oneof="yes,no" default="no" />
 
@@ -38,10 +39,12 @@ if [ $NGINX == "Nginx" ]; then
 elif [ $NGINX == "OpenResty" ]; then
     nginx_option=2
 fi
-[ $NGINX != "Do not install" ] && INSTALL_ARGS="--nginx_option $nginx_option"
+[ $NGINX != "DoNotInstall" ] && INSTALL_ARGS="--nginx_option $nginx_option"
 
 # php
-if [ $PHP == "7.4" ]; then
+if [ $PHP == "8.0" ]; then
+    php_option=10
+elif [ $PHP == "7.4" ]; then
     php_option=9
 elif [ $PHP == "7.3" ]; then
     php_option=8
@@ -60,22 +63,22 @@ elif [ $PHP == "5.4" ]; then
 elif [ $PHP == "5.3" ]; then
     php_option=1
 fi
-[ $PHP != "Do not install" ] && INSTALL_ARGS="--php_option $php_option $INSTALL_ARGS"
+[ $PHP != "DoNotInstall" ] && INSTALL_ARGS="$INSTALL_ARGS --php_option $php_option"
 
 # php extensions
-[ -z "`echo $PHPEXTENSIONS | grep 'Do not install'`" ] && INSTALL_ARGS="--php_extensions $PHPEXTENSIONS $INSTALL_ARGS"
+[ -z "`echo $PHPEXTENSIONS | grep 'DoNotInstall'`" ] && INSTALL_ARGS="$INSTALL_ARGS --php_extensions $PHPEXTENSIONS"
 
 # db
-if [ $DB == "MariaDB-10.5" ]; then
+if [ $DB == "MariaDB-10.6" ]; then
     db_option=5
-elif [ $DB == "MariaDB-10.4" ]; then
+elif [ $DB == "MariaDB-10.5" ]; then
     db_option=6
 elif [ $DB == "MySQL-8.0" ]; then
     db_option=1
 elif [ $DB == "MySQL-5.7" ]; then
     db_option=2
 fi
-[ $DB != "Do not install" ] && INSTALL_ARGS="--db_option $db_option --dbrootpwd $DBROOTPWD $INSTALL_ARGS"
+[ $DB != "DoNotInstall" ] && INSTALL_ARGS="--db_option $db_option --dbrootpwd $DBROOTPWD $INSTALL_ARGS"
 
 # jdk
 if [ $JDK == "11.0" ]; then
@@ -85,7 +88,7 @@ elif [ $JDK == "1.8" ]; then
 elif [ $JDK == "1.7" ]; then
     jdk_option=3
 fi
-[ $JDK != "Do not install" ] && INSTALL_ARGS="--jdk_option $jdk_option $INSTALL_ARGS"
+[ $JDK != "DoNotInstall" ] && INSTALL_ARGS="$INSTALL_ARGS --jdk_option $jdk_option $INSTALL_ARGS"
 
 # tomcat
 if [ $TOMCAT == "9.0" ]; then
@@ -93,12 +96,13 @@ if [ $TOMCAT == "9.0" ]; then
 elif [ $TOMCAT == "8.5" ]; then
     tomcat_option=2
 fi
-[ $TOMCAT != "Do not install" ] && INSTALL_ARGS="--tomcat_option $tomcat_option $INSTALL_ARGS"
+[ $TOMCAT != "DoNotInstall" ] && INSTALL_ARGS="$INSTALL_ARGS --tomcat_option $tomcat_option"
 
-[ $PHPMYADMIN == "yes" ] && INSTALL_ARGS="--phpmyadmin $INSTALL_ARGS"
-[ $PUREFTPD == "yes" ] && INSTALL_ARGS="--pureftpd $INSTALL_ARGS"
-[ $REDIS == "yes" ] && INSTALL_ARGS="--redis $INSTALL_ARGS"
-[ $MEMCACHED == "yes" ] && INSTALL_ARGS="--memcached $INSTALL_ARGS"
+[ $NODE == "yes" ] && INSTALL_ARGS="$INSTALL_ARGS --node"
+[ $PUREFTPD == "yes" ] && INSTALL_ARGS="$INSTALL_ARGS --pureftpd"
+[ $PHPMYADMIN == "yes" ] && INSTALL_ARGS="$INSTALL_ARGS --phpmyadmin"
+[ $REDIS == "yes" ] && INSTALL_ARGS="$INSTALL_ARGS --redis"
+[ $MEMCACHED == "yes" ] && INSTALL_ARGS="$INSTALL_ARGS --memcached"
 
 useradd ${RUNUSER}
 cd /root
@@ -112,5 +116,5 @@ elif [ -e "/usr/bin/apt-get" ]; then
   apt-get update
 fi
 ./oneinstack/install.sh $INSTALL_ARGS
-# echo $INSTALL_ARGS > /root/install_args.log
+echo $INSTALL_ARGS > /root/oneinstack/install_args.txt
 [ -e "/root/oneinstack-full.tar.gz" ] && rm -rf /root/oneinstack-full.tar.gz
