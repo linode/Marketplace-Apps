@@ -20,7 +20,7 @@ Ant Media Server Community Edition is limited version of Ant Media Server Enterp
 If you need adaptive streaming, cluster, load balancer and hardware encoding, please use Enterprise Edition http://antmedia.io
 
 ### Version Number
-2.3.2
+2.4.0.2
 
 ### Support URL
 [Document](https://github.com/ant-media/Ant-Media-Server/wiki)
