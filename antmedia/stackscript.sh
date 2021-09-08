@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ZIP_FILE="https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.3.2/ant-media-server-2.3.2-community-2.3.2-20210422_0754.zip"
+ZIP_FILE="https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.4.0.2/ant-media-server-community-2.4.0.2-20210905_1340.zip"
 INSTALL_SCRIPT="https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-media-server.sh"
 
 wget -q --no-check-certificate $ZIP_FILE -O /tmp/antmedia.zip && wget -q --no-check-certificate $INSTALL_SCRIPT -P /tmp/
