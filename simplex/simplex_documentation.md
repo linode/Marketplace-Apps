@@ -5,9 +5,9 @@ author:
   email: chat@simplex.chat
 description: 'SimpleX server is a message broker for SimpleX chat network - an open-source decentralized chat with a focus on users’ privacy.'
 og_description: 'SimpleX Server is a message broker for SimpleX chat network - an open-source decentralized chat with a focus on users’ privacy.'
-keywords: ['list','of','keywords','and key phrases']
-tags: ["decentralized", "messaging", "server", "messaging server", "chat", "privacy", "open-source", "decentralized open-source chat", "simplex", "smp"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
+keywords: ["decentralized", "messaging", "server", "messaging server", "chat", "privacy", "open-source", "decentralized open-source chat", "simplex", "smp"]
+tags: ["marketplace", "linode platform", "cloud manager"]
+license: "AGPL v3"
 published: 2021-09-12
 modified_by:
   name: SimpleX
@@ -78,7 +78,7 @@ After providing all required Linode Options, click on the **Create** button. **Y
      to access and interact with the Marketplace app. -->
 
 ### Use your SimpleX Server
-You're new SimpleX Server is deployed on TCP port 5223 - it should be passed as a command line parameter to the [terminal SimpleX chat client](https://github.com/simplex-chat/simplex-chat):
+Your new SimpleX Server is deployed on TCP port 5223 - it should be passed as a command line parameter to the [terminal SimpleX chat client](https://github.com/simplex-chat/simplex-chat):
 
 ```shell
 simplex-chat -s <ip_address_or_domain>#<transport_key_hash>
@@ -98,7 +98,7 @@ simplex-chat -h
 
 To see how to establish the connection, use groups, send files and use all other chat functions, type `/h` command inside the chat.
 
-See demo videos and full documentation in [SimpleX chat repo](https://github.com/simplex-chat/simplex-chat)
+See demo videos and full documentation in [SimpleX chat repo](https://github.com/simplex-chat/simplex-chat).
 
 <!-- the following shortcode informs the user that Linode does not provide automatic updates
      to the Marketplace app, and that the user is responsible for the security and longevity
