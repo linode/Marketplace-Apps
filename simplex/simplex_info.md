@@ -39,7 +39,7 @@ SimpleX Server deployment on Linode in [simplexmq repo](https://github.com/simpl
 
 ### Brand color 2
 (HEX code)
-#fbd561
+#03b0b0
 
 ### Logo
 simplex.svg
