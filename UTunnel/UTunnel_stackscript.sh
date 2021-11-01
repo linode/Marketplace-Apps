@@ -21,8 +21,8 @@ mkdir /utunnel
 	
 cd /utunnel 
 	
-wget https://files.utunnel.io/production/deploy/install_bundle.tar
+wget https://files.utunnel.io/production/deploy/install_bundle_20.tar
 	
-tar -xf install_bundle.tar
+tar -xf install_bundle_20.tar
 
-rm -f install_bundle.tar
+rm -f install_bundle_20.tar
