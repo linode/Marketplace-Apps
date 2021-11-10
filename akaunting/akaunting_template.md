@@ -4,6 +4,8 @@ Akaunting™
 ### App description
 Akaunting is a free, open source and online accounting software designed for small businesses and freelancers. It is built with modern technologies such as Laravel, VueJS, Bootstrap 4, RESTful API etc. Thanks to its modular structure, Akaunting provides an awesome App Store for users and developers.
 
+Akaunting is universal accounting software that can help you run your small business more efficiently. You can track expenses, generate reports, manage your books, and many more. It comes with a set of features that can help you run your business from a single dashboard, manage your employees, handle your invoices/bills, and so.
+
 ### Version Number
 Latest
 
@@ -29,3 +31,11 @@ In a web browser, you can access Akaunting using this Linode's IP.
 Please be patience it takes some time after Linode creation for everything to be set up.
 
 Learn more about Akaunting™ by visiting the [official documentation](https://akaunting.com/docs).
+
+### Brand Color 1 (HEX Code)
+
+#6EA152
+
+### Brand Color 2 (HEX Code)
+
+#55588B
