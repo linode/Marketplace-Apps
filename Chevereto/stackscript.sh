@@ -3,7 +3,7 @@
 
 set -e
 
-CHEVERETO_INSTALLER_TAG="2.2.3"
+CHEVERETO_INSTALLER_TAG="3.1.0"
 WORKING_DIR="/var/www/html"
 
 ## REQUIRED IN EVERY MARKETPLACE SUBMISSION
@@ -57,8 +57,7 @@ In a web browser, you can view:
  * The Chevereto installer: http://\$myip/installer.php
 On the server:
  * The default web root is located at /var/www/html
- * The MySQL root password is saved at
-   in /root/.mysql_password
+ * The MySQL root password is saved at /root/.mysql_password
  * Certbot is preinstalled, to configure HTTPS run:
    > certbot --apache -d example.com -d www.example.com
 IMPORTANT:
@@ -89,11 +88,11 @@ EOM
 
 # 11-installer.sh
 rm -rf "${WORKING_DIR}"/*
-mkdir -p /chevereto && mkdir -p /chevereto/{download,installer}
+mkdir -p /chevereto && mkdir -p /chevereto/download
 cd /chevereto/download
-curl -S -o installer.tar.gz -L "https://github.com/chevereto/installer/archive/${CHEVERETO_INSTALLER_TAG}.tar.gz"
-tar -xvzf installer.tar.gz
-mv -v installer-"${CHEVERETO_INSTALLER_TAG}"/installer.php "${WORKING_DIR}"/installer.php
+curl -S -o installer.php -L "https://github.com/chevereto/installer/releases/download/${CHEVERETO_INSTALLER_TAG}/installer.php"
+mv -v installer.php "${WORKING_DIR}"/installer.php
+touch "${WORKING_DIR}"/installer.lock
 cd $WORKING_DIR
 
 # 12-apache.sh
@@ -162,6 +161,8 @@ sed -e '/Match User root/d' \
     -i /etc/ssh/sshd_config
 
 systemctl restart ssh
+
+rm -rf "${WORKING_DIR}"/installer.lock
 
 echo $(date -u) ": System provisioning script is complete." >>/var/log/per-instance.log
 
