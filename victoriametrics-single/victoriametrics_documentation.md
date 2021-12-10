@@ -11,12 +11,16 @@ license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
 published: 2021-02-23
 modified_by:
   name: Linode
-title: "How to Deploy Zabbix With Marketplace Apps"
-h1_title: "Deploying Zabbix With Marketplace Apps"
+title: "How to Deploy VictoriaMetrics With Marketplace Apps"
+h1_title: "Deploying VictoriaMetrics With Marketplace Apps"
 external_resources:
-- '[Learn from documentation](https://www.zabbix.com/documentation/5.0/manual)'
-- '[Purchase Technical Support contract](https://www.zabbix.com/support)'
-- '[Zabbix official Forum](https://www.zabbix.com/forum)'
+- '[VictoriaMetrics Twitter](https://twitter.com/MetricsVictoria)'
+- '[VictoriaMetrics Community Slack](https://slack.victoriametrics.com)'
+- '[VictoriaMetrics Community Telegram](https://t.me/VictoriaMetrics_en)'
+- '[VictoriaMetrics Documentation](https://docs.victoriametrics.com)'
+- '[VictoriaMetrics Guides](https://docs.victoriametrics.com/guides)'
+- '[VictoriaMetrics Articles](https://docs.victoriametrics.com/Articles.html)'
+- '[VictoriaMetrics Case stadies and talks](https://docs.victoriametrics.com/CaseStudies.html)'
 aliases: ['/platform/marketplace/deploy-zabbix-with-marketplace-apps/', '/platform/one-click/deploy-zabbix-with-marketplace-apps/']
 ---
 
