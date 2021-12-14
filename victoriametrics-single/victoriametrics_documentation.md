@@ -92,7 +92,6 @@ ssh root@your_linodes_ip_address_ipv4
 ## For further documentation visit:
 
 - [VictoriaMetrics documentation](https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html)
-- [How to start VictoriaMetrics](https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html#how-to-start-victoriametrics)
 - [Quick Start](https://docs.victoriametrics.com/Quick-Start.html)
 - [VictoriaMetrics Articles](https://docs.victoriametrics.com/Articles.html)
 - [Grafana Dashboards for VictoriaMetrics](https://grafana.com/grafana/dashboards/10229)
