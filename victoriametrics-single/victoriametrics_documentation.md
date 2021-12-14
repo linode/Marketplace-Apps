@@ -1,29 +1,3 @@
----
-slug: deploy-victoriametrics-with-marketplace-apps
-author:
-  name: VictoriaMetrics Inc.
-  email: do-marketplace@victoriametrics.com
-description: 'VictoriaMetrics is a free open source time series database (TSDB) and monitoring solution, designed to collect, store and process real-time metrics. Learn how to deploy VictoriaMetrics on Linode using Marketplace Apps.'
-og_description: 'VictoriaMetrics is a free open source time series database (TSDB) and monitoring solution, designed to collect, store and process real-time metrics. Learn how to deploy VictoriaMetrics on Linode using Marketplace Apps.'
-keywords: ['monitoring','networking','tsdb']
-tags: ["marketplace", "networking", "linode platform", "cloud manager", "monitoring"]
-license: '[CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0)'
-published: 2021-02-23
-modified_by:
-  name: Linode
-title: "How to Deploy VictoriaMetrics With Marketplace Apps"
-h1_title: "Deploying VictoriaMetrics With Marketplace Apps"
-external_resources:
-- '[VictoriaMetrics Twitter](https://twitter.com/MetricsVictoria)'
-- '[VictoriaMetrics Community Slack](https://slack.victoriametrics.com)'
-- '[VictoriaMetrics Community Telegram](https://t.me/VictoriaMetrics_en)'
-- '[VictoriaMetrics Documentation](https://docs.victoriametrics.com)'
-- '[VictoriaMetrics Guides](https://docs.victoriametrics.com/guides)'
-- '[VictoriaMetrics Articles](https://docs.victoriametrics.com/Articles.html)'
-- '[VictoriaMetrics Case stadies and talks](https://docs.victoriametrics.com/CaseStudies.html)'
-aliases: ['/platform/marketplace/deploy-zabbix-with-marketplace-apps/', '/platform/one-click/deploy-zabbix-with-marketplace-apps/']
----
-
 ## VictoriaMetrics Marketplace App
 
 <!-- Intro paragraph describing the app and what it accomplishes. -->
