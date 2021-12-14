@@ -124,7 +124,7 @@ cat /dev/null > /root/.bash_history
 unset HISTFILE
 find /var/log -mtime -1 -type f ! -name 'stackscript.log' -exec truncate -s 0 {} \;
 
-# Start Zabbix
+# Start VictoriaMetrics
 systemctl enable vmsingle.service
 systemctl start vmsingle.service
 
