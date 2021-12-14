@@ -13,6 +13,10 @@ mkdir -p /etc/victoriametrics/single
 mkdir -p /var/lib/victoria-metrics-data
 mkdir -p /var/lib/cloud/scripts/per-instance
 
+# Create victoriametrics user
+groupadd -r victoriametrics
+useradd -g victoriametrics -d /var/lib/victoria-metrics-data -s /sbin/nologin --system victoriametrics
+chown -R victoriametrics:victoriametrics /var/lib/victoria-metrics-data
 
 cat <<END >/etc/systemd/system/vmsingle.service
 [Unit]
@@ -82,7 +86,9 @@ On the server:
   * The default VictoriaMetrics root is located at /var/lib/victoria-metrics-data
   * VictoriaMetrics is running on ports: 8428, 8089, 4242, 2003 and they are bound to the local interface.
 ********************************************************************************
-NOTE:  This image includes version 1.70.0 of VictoriaMetrics.
+  # This image includes version v1.70.0 of VictoriaMetrics. 
+  # See Release notes https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.70.0
+
   # Welcome to VictoriaMetrics droplet!
   # Website:       https://victoriametrics.com
   # Documentation: https://docs.victoriametrics.com
@@ -94,6 +100,22 @@ NOTE:  This image includes version 1.70.0 of VictoriaMetrics.
   # VictoriaMetrics UI accessable on:   http://your_droplet_public_ipv4:8428/vmui/
 EOF
 END
+
+# Enable UFW and add some rules to it
+sed -e 's|DEFAULT_FORWARD_POLICY=.*|DEFAULT_FORWARD_POLICY="ACCEPT"|g' \
+    -i /etc/default/ufw
+
+ufw allow ssh comment "SSH port"
+ufw allow http comment "HTTP port"
+ufw allow https comment "HTTPS port"
+ufw allow 8428 comment "VictoriaMetrics Single HTTP port"
+ufw allow 8089/tcp comment "TCP Influx Listen port for VictoriaMetrics"
+ufw allow 8089/udp comment "UDP Influx Listen port for VictoriaMetrics"
+ufw allow 2003/tcp comment "TCP Graphite Listen port for VictoriaMetrics"
+ufw allow 2003/udp comment "UDP Graphite Listen port for VictoriaMetrics"
+ufw allow 4242 comment "OpenTSDB Listen port for VictoriaMetrics"
+
+ufw --force enable
 
 # Cleaning up
 rm -rf /tmp/* /var/tmp/*
