@@ -4,10 +4,9 @@
 #
 # Usage: ./restyaboard.sh
 #
-# Copyright (c) 2014-2019 Restya.
+# Copyright (c) 2014-2021 Restya.
 # Dual License (OSL 3.0 & Commercial License)
 {
-    IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
 	main() {
 		if [[ $EUID -ne 0 ]];
 		then
@@ -1056,13 +1055,17 @@
 		if ([ "$pkg_name" = "apt-get" ])
         then
 			apt update
+            apt install -y net-tools
 			apt install -y curl unzip
 		else
 			if ([ "$pkg_name" = "yum" ])
         	then
+                yum install -y net-tools
 				yum install -y curl unzip
 			fi
 		fi
+        IFCONFIG_PATH=$(which ifconfig)
+        IPADDR=$(${IFCONFIG_PATH} eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
 		RESTYABOARD_VERSION=$(curl --silent https://api.github.com/repos/RestyaPlatform/board/releases | grep tag_name -m 1 | awk '{print $2}' | sed -e 's/[^v0-9.]//g')
 		POSTGRES_DBHOST=localhost
 		POSTGRES_DBNAME=restyaboard
@@ -1303,7 +1306,7 @@
 				set -x
 				
 				echo "Downloading files..."
-				curl -v -L -G -d "app=board&ver=${RESTYABOARD_VERSION}" -o /tmp/restyaboard.zip https://restya.com/download.php
+				curl -v -L -G -d "app=board&ver=${RESTYABOARD_VERSION}" -o /tmp/restyaboard.zip -k https://restya.com/download.php
 				unzip /tmp/restyaboard.zip -d ${DOWNLOAD_DIR}
 				
 				echo "Updating files..."
@@ -1494,7 +1497,7 @@
             apt install -y curl
         fi
         mkdir ${DOWNLOAD_DIR}
-        curl -v -L -G -d "app=board&ver=${RESTYABOARD_VERSION}" -o /tmp/restyaboard.zip https://restya.com/download.php
+        curl -v -L -G -d "app=board&ver=${RESTYABOARD_VERSION}" -o /tmp/restyaboard.zip -k https://restya.com/download.php
         unzip /tmp/restyaboard.zip -d ${DOWNLOAD_DIR}
         rm /tmp/restyaboard.zip
 
@@ -1595,7 +1598,7 @@
 			echo "Note: PHP Mailer will not work in Azure. Kindly use external SMTP mail server."
 		fi
 		set +x
-		curl -v -L -G -d "app=board&os=${os}&version=${version}" "https://restya.com/success_installation.php"
+		curl -v -L -G -d "app=board&os=${os}&version=${version}" -k "https://restya.com/success_installation.php"
 		echo "Restyaboard URL : $IPADDR"
 
 		echo "Login with username admin and password restya"
@@ -1604,7 +1607,7 @@
 	main
 	error=$?
 	os=$(lsb_release -i -s)
-	curl -v -L -G -d "app=board&os=${os}&error=${error}" "https://restya.com/error_installation.php"
-	echo "If you're finding it difficult to install Restyaboard from your end, we do also offer free installation support that you may consider https://restya.com/contact?category=free-installation"
+	curl -v -L -G -d "app=board&os=${os}&error=${error}" -k "https://restya.com/error_installation.php"
+	echo "If you're finding it difficult to install Restyaboard from your end, we do also offer installation support that you may consider https://restya.com/contact"
 	exit 1
 } 2>&1 | tee -a /tmp/restyaboard_install.log
