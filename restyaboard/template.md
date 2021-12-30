@@ -23,7 +23,7 @@ Restyaboard
 
 ### Documentation
 
-Getting started after deploying NirvaShare
+Getting started after deploying Restyaboard
 
 [https://restya.com/board/docs/install-restyaboard-linode-marketplace-tutorial/](https://restya.com/board/docs/install-restyaboard-linode-marketplace-tutorial/)
 
