@@ -8,6 +8,7 @@ system_set_hostname "$HOSTNAME"
 
 exec > >(tee /dev/ttyS0 /var/log/stackscript.log) 2>&1
 
+apt update && apt upgrade -y && apt install -y curl wget net-tools traceroute jq
 # Generate files
 mkdir -p /etc/victoriametrics/single
 mkdir -p /var/lib/victoria-metrics-data
@@ -17,6 +18,13 @@ mkdir -p /var/lib/cloud/scripts/per-instance
 groupadd -r victoriametrics
 useradd -g victoriametrics -d /var/lib/victoria-metrics-data -s /sbin/nologin --system victoriametrics
 chown -R victoriametrics:victoriametrics /var/lib/victoria-metrics-data
+
+# Install VictoriaMetrics Single
+VM_VERSION=`curl -sg "https://api.github.com/repos/VictoriaMetrics/VictoriaMetrics/tags" | jq -r '.[0].name'`
+wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/${VM_VERSION}/victoria-metrics-amd64-${VM_VERSION}.tar.gz  -O /tmp/victoria-metrics.tar.gz
+tar xvf /tmp/victoria-metrics.tar.gz -C /usr/bin
+chmod +x /usr/bin/victoria-metrics-prod
+chown root:root /usr/bin/victoria-metrics-prod
 
 cat <<END >/etc/systemd/system/vmsingle.service
 [Unit]
@@ -48,7 +56,6 @@ SyslogIdentifier=vmsingle
 
 [Install]
 WantedBy=multi-user.target
-EOF
 END
 
 cat <<END >/etc/victoriametrics/single/victoriametrics.conf
@@ -56,7 +63,6 @@ cat <<END >/etc/victoriametrics/single/victoriametrics.conf
 # 
 # If you use IPv6 pleas add "-enableTCP6" to args line
 ARGS="-promscrape.config=/etc/victoriametrics/single/scrape.yml -storageDataPath=/var/lib/victoria-metrics-data -retentionPeriod=12 -httpListenAddr=:8428 -graphiteListenAddr=:2003 -opentsdbListenAddr=:4242 -influxListenAddr=:8089 -enableTCP6"
-EOF
 END
 
 cat <<END /etc/victoriametrics/single/scrape.yml
@@ -67,14 +73,13 @@ scrape_configs:
     scrape_interval: 10s
     static_configs:
       - targets: ['127.0.0.1:8428'] 
-EOF
 END
 
 cat <<END >/etc/profile.d/victoriametrics_welcome.sh
 #!/bin/sh
 #
 myip=$(hostname -I | awk '{print$1}')
-cat <<EOF
+cat <<
 ********************************************************************************
 Welcome to VictoriaMetrics Single.
 To keep this server secure, the UFW firewall is enabled.
@@ -98,7 +103,6 @@ On the server:
   # VictoriaMetrics config:   /etc/victoriametrics/single/victoriametrics.conf
   # VictoriaMetrics scrape config:   /etc/victoriametrics/single/scrape.yml
   # VictoriaMetrics UI accessable on:   http://your_droplet_public_ipv4:8428/vmui/
-EOF
 END
 
 # Enable UFW and add some rules to it

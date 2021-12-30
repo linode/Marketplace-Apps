@@ -50,7 +50,7 @@ After providing all required Linode Options, click on the **Create** button. **Y
 
 ### Config
 
-VictoriaMetrics configuration is located at `/etc/victoriametrics/single/scrape.yml` on the droplet. 
+VictoriaMetrics configuration is located at `/etc/victoriametrics/single/scrape.yml` at the server. 
 This One Click app uses 8428, 2003, 4242 and 8089 ports to accept metrics from different protocols. It's recommended to disable ports for protocols which are not needed. [Ubuntu firewall](https://help.ubuntu.com/community/UFW) can be used to easily disable access for specific ports.
 
 ### Scraping metrics
@@ -69,22 +69,22 @@ See more details and examples in [official documentation](https://docs.victoriam
 
 ### UI
 
-VictoriaMetrics provides a [User Interface (UI)](https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html#vmui) for query troubleshooting and exploration. The UI is available at `http://your_droplet_public_ipv4:8428/vmui`. It lets users explore query results via graphs and tables.
+VictoriaMetrics provides a [User Interface (UI)](https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html#vmui) for query troubleshooting and exploration. The UI is available at `http://your_server_public_ipv4:8428/vmui`. It lets users explore query results via graphs and tables.
 
-To check it, open the following in your browser `http://your_droplet_public_ipv4:8428/vmui` and then enter `vm_app_uptime_seconds` to the Query Field to Execute the Query.
+To check it, open the following in your browser `http://your_server_public_ipv4:8428/vmui` and then enter `vm_app_uptime_seconds` to the Query Field to Execute the Query.
 
 Run the following command to query and retrieve a result from VictoriaMetrics Single with `curl`:
 
 ```bash
-curl -sg http://your_linodes_ip_address_ipv4:8428/api/v1/query_range?query=vm_app_uptime_seconds | jq
+curl -sg http://your_server_public_ipv4:8428/api/v1/query_range?query=vm_app_uptime_seconds | jq
 ```
 
 ### Accessing
 
-Once the Droplet is created, you can use DigitalOcean's web console to start a session or  SSH directly to the server as root:
+Once the Linode server is created, you can use web console to start a session or  SSH directly to the server as root:
 
 ```bash
-ssh root@your_linodes_ip_address_ipv4
+ssh root@your_server_public_ipv4
 ```
 
 ### Next Steps
