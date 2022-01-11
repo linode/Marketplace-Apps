@@ -12,6 +12,10 @@ set -x
 # <UDF name="website_locale" label="Wordpress Locale" example="Example: de_DE, nl_NL, ru_RU" default="en_US" />
 
 
+# Add Logging to /var/log/stackscript.log for future troubleshooting
+exec > >(tee /dev/ttyS0 /var/log/stackscript.log) 2>&1
+
+
 WEBSITE=$(echo $WEBSITE | sed -e 's/^https\?:\/\///g' -e 's/\/$//')
 
 
