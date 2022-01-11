@@ -23,7 +23,7 @@ The mod_pagespeed included to the app increases website loading speed on-the-fly
 
 The one-click app also ships with YoastSEO and W3 Total Cache plugins. Redis server in installed and enabled for wordpress object cache in orders to increase performance. 
 
-## Deploying the Harbor Marketplace App
+## Deploying the WordPress + mod_pagespeed
 
 {{< content "deploy-marketplace-apps-shortguide">}}
 
