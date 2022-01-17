@@ -141,6 +141,8 @@ server {
         include fastcgi_params;
 
         fastcgi_read_timeout 300;
+        fastcgi_buffer_size 32k;
+        fastcgi_buffers 4 32k;
 
         # Block httpoxy attacks. See https://httpoxy.org/.
         fastcgi_param HTTP_PROXY "";
