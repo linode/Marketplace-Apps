@@ -1,4 +1,4 @@
-![Linode Logo](https://www.linode.com/wp-content/uploads/2022/02/Linode-Logo-Black.png)
+![Linode-Logo](https://user-images.githubusercontent.com/62116325/156190595-2da64f37-3324-4fba-8e9e-5011a315c6c1.png)
 
 # Linode Marketplace Submission Information
 
