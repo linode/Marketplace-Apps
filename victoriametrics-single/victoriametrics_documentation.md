@@ -50,7 +50,7 @@ After providing all required Linode Options, click on the **Create** button. **Y
 
 ### Config
 
-VictoriaMetrics configuration is located at `/etc/victoriametrics/single/scrape.yml` at the server. 
+VictoriaMetrics configuration is located at `/etc/victoriametrics/single/scrape.yml` at the server.
 This One Click app uses 8428, 2003, 4242 and 8089 ports to accept metrics from different protocols. It's recommended to disable ports for protocols which are not needed. [Ubuntu firewall](https://help.ubuntu.com/community/UFW) can be used to easily disable access for specific ports.
 
 ### Scraping metrics

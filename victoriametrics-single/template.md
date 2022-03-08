@@ -5,7 +5,7 @@ VictoriaMetrics Single
 
 ### App description
 
-VictoriaMetrics is a free [open source time series database](https://en.wikipedia.org/wiki/Time_series_database) (TSDB) and monitoring solution, designed to collect, store and process real-time metrics. 
+VictoriaMetrics is a free [open source time series database](https://en.wikipedia.org/wiki/Time_series_database) (TSDB) and monitoring solution, designed to collect, store and process real-time metrics.
 
 It supports the [Prometheus](https://en.wikipedia.org/wiki/Prometheus_(software)) pull model and various push protocols ([Graphite](https://en.wikipedia.org/wiki/Graphite_(software)), [InfluxDB](https://en.wikipedia.org/wiki/InfluxDB), OpenTSDB) for data ingestion. It is optimized for storage with high-latency IO, low IOPS and time series with [high churn rate](https://docs.victoriametrics.com/FAQ.html#what-is-high-churn-rate). 
 
@@ -14,7 +14,7 @@ For reading the data and evaluating alerting rules, VictoriaMetrics supports the
 [VictoriaMetrics Single](https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html) = Hassle-free monitoring solution. Easily handles 10M+ of active time series on a single instance. Perfect for small and medium environments.
 
 ### Version Number
-1.70.0
+1.73.0
 
 ### Support URL
 * [VictoriaMetrics Twitter](https://twitter.com/MetricsVictoria)
