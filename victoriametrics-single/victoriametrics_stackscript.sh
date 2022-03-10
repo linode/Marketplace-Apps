@@ -42,9 +42,9 @@ StartLimitInterval=0
 Restart=on-failure
 RestartSec=5
 EnvironmentFile=-/etc/victoriametrics/single/victoriametrics.conf
-ExecStart=/usr/bin/victoria-metrics-prod $ARGS
-ExecStop=/bin/kill -s SIGTERM $MAINPID
-ExecReload=/bin/kill -HUP $MAINPID
+ExecStart=/usr/bin/victoria-metrics-prod \$ARGS
+ExecStop=/bin/kill -s SIGTERM \$MAINPID
+ExecReload=/bin/kill -HUP \$MAINPID
 # See docs https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html#tuning
 ProtectSystem=full
 LimitNOFILE=1048576
@@ -91,7 +91,7 @@ On the server:
   * The default VictoriaMetrics root is located at /var/lib/victoria-metrics-data
   * VictoriaMetrics is running on ports: 8428, 8089, 4242, 2003 and they are bound to the local interface.
 ********************************************************************************
-  # This image includes version v1.70.0 of VictoriaMetrics. 
+  # This image includes version v1.74.0 of VictoriaMetrics. 
   # See Release notes https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.70.0
 
   # Welcome to VictoriaMetrics droplet!
