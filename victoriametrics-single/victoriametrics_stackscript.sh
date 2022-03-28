@@ -91,7 +91,7 @@ On the server:
   * The default VictoriaMetrics root is located at /var/lib/victoria-metrics-data
   * VictoriaMetrics is running on ports: 8428, 8089, 4242, 2003 and they are bound to the local interface.
 ********************************************************************************
-  # This image includes version v1.74.0 of VictoriaMetrics. 
+  # This image includes version v1.75.0 of VictoriaMetrics. 
   # See Release notes https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.70.0
 
   # Welcome to VictoriaMetrics droplet!
