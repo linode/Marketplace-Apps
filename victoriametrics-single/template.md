@@ -14,7 +14,7 @@ For reading the data and evaluating alerting rules, VictoriaMetrics supports the
 [VictoriaMetrics Single](https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html) = Hassle-free monitoring solution. Easily handles 10M+ of active time series on a single instance. Perfect for small and medium environments.
 
 ### Version Number
-1.74.0
+1.75.0
 
 ### Support URL
 * [VictoriaMetrics Twitter](https://twitter.com/MetricsVictoria)
