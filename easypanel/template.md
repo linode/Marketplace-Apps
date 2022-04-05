@@ -26,7 +26,7 @@ Ubuntu 20.04 LTS
 
 ### Documentation
 
-After creating your Linode, you can access Easypanel using the IP address of your server. The default username is "admin" and the password is "setup".
+After creating your Linode, you can access Easypanel using the IP address of your server.
 
 ## App Assets
 
