@@ -91,8 +91,8 @@ On the server:
   * The default VictoriaMetrics root is located at /var/lib/victoria-metrics-data
   * VictoriaMetrics is running on ports: 8428, 8089, 4242, 2003 and they are bound to the local interface.
 ********************************************************************************
-  # This image includes version v1.75.0 of VictoriaMetrics. 
-  # See Release notes https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.70.0
+  # This image includes version v1.76.0 of VictoriaMetrics. 
+  # See Release notes https://github.com/VictoriaMetrics/VictoriaMetrics/releases/tag/v1.76.0
 
   # Welcome to VictoriaMetrics droplet!
   # Website:       https://victoriametrics.com
@@ -131,6 +131,5 @@ find /var/log -mtime -1 -type f ! -name 'stackscript.log' -exec truncate -s 0 {}
 # Start VictoriaMetrics
 systemctl enable vmsingle.service
 systemctl start vmsingle.service
-
 
 echo "Installation complete!"
