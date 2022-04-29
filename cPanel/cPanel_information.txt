@@ -1,0 +1,33 @@
+## App Information
+
+### App Name
+cPanel & WHM
+
+### App description
+The leading hosting automation platform that has simplified site and server management for 20 years.
+
+### Version Number
+RELEASE
+
+### Support URL
+https://support.cpanel.net/
+
+### Operating System
+Ubuntu 20.04 LTS, CentOS 7
+
+### Documentation
+https://www.linode.com/docs/products/tools/marketplace/guides/cpanel/
+
+## App Assets
+
+### Brand color 1
+`#179BD7`
+
+### Brand color 2
+`#85B655`
+
+### Logo
+SVGs inside assets.zip:
+- cpanel_orange.svg
+- cpanel_white.svg
+
