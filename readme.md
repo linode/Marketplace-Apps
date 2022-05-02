@@ -1,4 +1,4 @@
-![Linode Logo](https://github.com/linode/docs/blob/develop/docs/assets/linode_readme_logo.png?raw=true)
+![Linode-Logo](https://user-images.githubusercontent.com/62116325/156190595-2da64f37-3324-4fba-8e9e-5011a315c6c1.png)
 
 # Linode Marketplace Submission Information
 
@@ -19,7 +19,7 @@ In addition to submitting your [StackScript](https://www.linode.com/docs/platfor
 *All apps must have a designated support URL to direct users to a resource like a Contact form, specific Community forum, or active social media account they can contact for help.*
 
 **Operating System**  
-*One-Click Apps currently support Debian 9, Debian 10, CentOS 7, Ubuntu 20.04 LTS.*
+*One-Click Apps currently support Debian 9, Debian 10, Ubuntu 20.04 LTS.*
 
 **Documentation**  
 Providing thorough technical documentation is a requirement of submitting a One-Click App to Linode’s Marketplace for both testing purposes and publishing the Doc to our Docs Library. 
