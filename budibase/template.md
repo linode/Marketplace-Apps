@@ -4,7 +4,7 @@
 Budibase
 
 ### App description
-Budibase is a modern, open source low-code platform for building modern business applications in minutes. Build, design and automate business apps, such as; admin panels, forms, internal tools, client portals and more. Before Budibase, it could take developers weeks to build simple CRUD apps; with Budibase, building CRUD apps takes minutes.
+[Budibase](https://github.com/Budibase/budibase) is a modern, open source low-code platform for building modern business applications in minutes. Build, design and automate business apps, such as; admin panels, forms, internal tools, client portals and more. Before Budibase, it could take developers weeks to build simple CRUD apps; with Budibase, building CRUD apps takes minutes.
 When self-hosting please follow best practices for securing, updating and backing up your server.
 
 ### Version Number
