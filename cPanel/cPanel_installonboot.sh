@@ -15,6 +15,7 @@ fi
 # instructs the terminal to wrap your lines, which is especially important so that
 # the WHM login URL that gets printed at the end can be copied.
 tput smam
+hostnamectl set-hostname server.hostname.tld
 cd /home && curl -so installer -L https://securedownloads.cpanel.net/latest
 source /etc/os-release
 if [ "$ID" = ubuntu ]; then
