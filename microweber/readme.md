@@ -71,7 +71,7 @@ ufw delete allow 80/tcp
 mysql_secure_installation`
 ```
 **Updates**
-Microweber can update itself, simply  open [http://your_linode_ipv4/dashboard](http://your_linode_ipv4/dashboard) and click "check for updates" button.
+Microweber can update itself, simply  open [http://your_linode_ipv4/admin](http://your_linode_ipv4/admin) and click "check for updates" button.
 ### Brand Color 1 (HEX Code)
 `#4592ff`
 ### Brand Color 2 (HEX Code)
