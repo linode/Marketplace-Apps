@@ -26,7 +26,7 @@ Ubuntu 20.04 LTS
 
 ### Documentation
 
-After creating your Linode, you can access Easypanel using the IP address of your server.
+After creating your Linode, you can access Easypanel using the IP address of your server on port 3000.
 
 ## App Assets
 
