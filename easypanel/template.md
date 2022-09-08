@@ -22,7 +22,7 @@ Easypanel is a modern server control panel which uses Docker under the hood. You
 
 ### Operating System
 
-Ubuntu 20.04 LTS
+Ubuntu 22.04 LTS
 
 ### Documentation
 
