@@ -65,7 +65,7 @@ cat <<END >/etc/victoriametrics/single/victoriametrics.conf
 ARGS="-promscrape.config=/etc/victoriametrics/single/scrape.yml -storageDataPath=/var/lib/victoria-metrics-data -retentionPeriod=12 -httpListenAddr=:8428 -graphiteListenAddr=:2003 -opentsdbListenAddr=:4242 -influxListenAddr=:8089 -enableTCP6"
 END
 
-cat <<END /etc/victoriametrics/single/scrape.yml
+cat <<END >/etc/victoriametrics/single/scrape.yml
 # Scrape config example
 #
 scrape_configs:
