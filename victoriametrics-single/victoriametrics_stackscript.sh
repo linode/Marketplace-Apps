@@ -21,7 +21,7 @@ chown -R victoriametrics:victoriametrics /var/lib/victoria-metrics-data
 
 # Install VictoriaMetrics Single
 VM_VERSION=`curl -sg "https://api.github.com/repos/VictoriaMetrics/VictoriaMetrics/tags" | jq -r '.[0].name'`
-wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/${VM_VERSION}/victoria-metrics-amd64-${VM_VERSION}.tar.gz  -O /tmp/victoria-metrics.tar.gz
+wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/${VM_VERSION}/victoria-metrics-linux-amd64-${VM_VERSION}.tar.gz  -O /tmp/victoria-metrics.tar.gz
 tar xvf /tmp/victoria-metrics.tar.gz -C /usr/bin
 chmod +x /usr/bin/victoria-metrics-prod
 chown root:root /usr/bin/victoria-metrics-prod
