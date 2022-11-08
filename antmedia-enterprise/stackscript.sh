@@ -11,4 +11,3 @@ else
   logger "There is a problem in installing the ant media server. Please send the log of this console to contact@antmedia.io"
   exit 1
 fi
-   
