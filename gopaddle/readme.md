@@ -1,4 +1,14 @@
-## Installation Notes
+<img alt="gopaddle" src="https://gopaddle-marketing.s3.ap-southeast-2.amazonaws.com/gopaddle.png?s=200&v=4" width="200" align="left">
+
+# [gopaddle](https://gopaddle.io/)
+
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/gopaddle-lite)](https://artifacthub.io/packages/search?repo=gopaddle-lite)
+[![Slack Channel](https://img.shields.io/badge/Slack-Join-purple)](https://gopaddleio.slack.com/join/shared_invite/zt-1l73p8wfo-vYk1XcbLAZMo9wcV_AChvg#/shared-invite/email/expanded-email-form)
+[![Twitter](https://img.shields.io/twitter/follow/gopaddleio?style=social)](https://twitter.com/gopaddleio)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-Subscribe-red)](https://www.youtube.com/channel/UCtbfM3vjjJJBAka8DCzKKYg)
+<br><br><br><br>
+
+## Installation
 
 ### Minimum System Requirements
 gopaddle installation requires a minimum of `8GB RAM` and `4 vCPUs`
@@ -56,6 +66,3 @@ Under Templates, the Marketplace Applications hosts a variety of pre-built Kuber
 
 <img width="1445" alt="gp-app-templates-1" src="https://user-images.githubusercontent.com/74309181/205758999-2a50eac6-d292-4280-85dd-3d617eda623a.png">
 
-### Support
-
-[Slack](https://gopaddleio.slack.com/join/shared_invite/zt-1i4v0li3n-jyTdalvVSACeNLt39xS2PA#/shared-invite/email/expanded-email-form)
