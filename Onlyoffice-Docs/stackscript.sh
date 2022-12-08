@@ -6,7 +6,7 @@
 # SSL Settings
 # <UDF name="ssl_enabled" Label="Specifies the enabling ssl connection. This value set to false by default" default="false"> 
 # <UDF name="lets_encrypt_domain" Label="Domain name for which certificates will be generated." example="example.com" default=""> 
-# <UDF name="lets_encrypt_mail" Label="Email address for correct generation of certificates" example="examole@mail.com" default="">
+# <UDF name="lets_encrypt_mail" Label="Email address for correct generation of certificates" example="examplee@mail.com" default="">
 
 # Enable Logging to /var/log/stackscript.log for future troubleshooting
 exec 1> >(tee -a "/var/log/stackscript.log") 2>&1
@@ -23,9 +23,11 @@ CONTAINER_NAME="onlyoffice-docs"
 if [[ "${SSL_ENABLED}" == "true" ]]; then
 	if [[ -z ${LETS_ENCRYPT_DOMAIN} ]]; then
 		echo "Missing required LETS_ENCRYPT_DOMAIN parameter for correct SSL work"
+		exit 1
 	fi
 	if [[ -z ${LETS_ENCRYPT_DOMAIN} ]]; then
 		echo "Missing required LETS_ENCRYPT_DOMAIN parameter for correct SSL work"
+		exit 1
         fi
 	sudo docker run -i -t -d -p 80:80 -p 443:443 \
 		-e JWT_ENABLED=${JWT_ENABLED} \
