@@ -9,7 +9,7 @@ Starting from version 6.0, Document Server is distributed as ONLYOFFICE Docs. [t
 
 ### Version Number
 
-1.0.0
+latest 
 
 ### Support URL
 
