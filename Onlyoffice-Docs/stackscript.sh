@@ -33,7 +33,7 @@ if [[ "${SSL_ENABLED}" == "false" ]]; then
 		--name ${CONTAINER_NAME} \
 		onlyoffice/documentserver:${DOCS_VERSION}
 	else 
-
+# Run ONLYOFFICE-Docs with SSL
 	sudo docker run -i -t -d -p 80:80 -p 443:443 \
                 -e JWT_ENABLED=${JWT_ENABLED} \
                 -e JWT_SECRET=${JWT_SECRET} \
