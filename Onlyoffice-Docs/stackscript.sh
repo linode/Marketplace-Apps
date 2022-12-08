@@ -19,11 +19,19 @@ curl -fsSL get.docker.com | sudo sh
 
 CONTAINER_NAME="onlyoffice-docs"
 
-# Run ONLYOFFICE-Docs without SSL
-if [[ "${SSL_ENABLED}" == "false" ]]; then
-	sudo docker run -i -t -d -p 80:80 \
+# Run ONLYOFFICE-Docs with SSL
+if [[ "${SSL_ENABLED}" == "true" ]]; then
+	if [[ -z ${LETS_ENCRYPT_DOMAIN} ]]; then
+		echo "Missing required LETS_ENCRYPT_DOMAIN parameter for correct SSL work"
+	fi
+	if [[ -z ${LETS_ENCRYPT_DOMAIN} ]]; then
+		echo "Missing required LETS_ENCRYPT_DOMAIN parameter for correct SSL work"
+        fi
+	sudo docker run -i -t -d -p 80:80 -p 443:443 \
 		-e JWT_ENABLED=${JWT_ENABLED} \
        		-e JWT_SECRET=${JWT_SECRET} \
+		-e LETS_ENCRYPT_DOMAIN=${LETS_ENCRYPT_DOMAIN} \
+                -e LETS_ENCRYPT_MAIL=${LETS_ENCRYPT_MAIL} \
 		-v /app/onlyoffice/DocumentServer/logs:/var/log/onlyoffice  \
 		-v /app/onlyoffice/DocumentServer/data:/var/www/onlyoffice/Data  \
         	-v /app/onlyoffice/DocumentServer/lib:/var/lib/onlyoffice \
@@ -33,12 +41,10 @@ if [[ "${SSL_ENABLED}" == "false" ]]; then
 		--name ${CONTAINER_NAME} \
 		onlyoffice/documentserver:${DOCS_VERSION}
 	else 
-# Run ONLYOFFICE-Docs with SSL
-	sudo docker run -i -t -d -p 80:80 -p 443:443 \
+# Run ONLYOFFICE-Docs without SSL
+	sudo docker run -i -t -d -p 80:80 \
                 -e JWT_ENABLED=${JWT_ENABLED} \
                 -e JWT_SECRET=${JWT_SECRET} \
-                -e LETS_ENCRYPT_DOMAIN=${LETS_ENCRYPT_DOMAIN} \
-                -e LETS_ENCRYPT_MAIL=${LETS_ENCRYPT_MAIL} \
                 -v /app/onlyoffice/DocumentServer/logs:/var/log/onlyoffice  \
                 -v /app/onlyoffice/DocumentServer/data:/var/www/onlyoffice/Data  \
                 -v /app/onlyoffice/DocumentServer/lib:/var/lib/onlyoffice \
