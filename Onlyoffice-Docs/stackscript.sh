@@ -80,10 +80,10 @@ ready_check() {
 
 ready_check
 
-# Enable Docs-example by default
+# Enable Docs-example
 sudo docker exec ${CONTAINER_NAME} supervisorctl start ds:example
 
-# Add example to autostart
+# Add Docs-example to autostart
 sudo docker exec ${CONTAINER_NAME} sudo sed 's,autostart=false,autostart=true,' -i /etc/supervisor/conf.d/ds-example.conf
 
 # Add MOTD 
