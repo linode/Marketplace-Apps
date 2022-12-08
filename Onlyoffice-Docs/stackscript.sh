@@ -6,7 +6,7 @@
 # SSL Settings
 # <UDF name="ssl_enabled" Label="Specifies the enabling ssl connection. If set to 'true' ssl sercificates will be generate automaticly." default="false"> 
 # <UDF name="lets_encrypt_domain" Label="Domain name for which certificates will be generated." example="example.com" default=""> 
-# <UDF name="lets_encrypt_mail" Label="Email address for correct generation of certificates" example="example@mail.com" default="">
+# <UDF name="lets_encrypt_mail" Label="Email address for correct generation of certificates" example="mymail@example.com" default="">
 
 # Enable Logging to /var/log/stackscript.log for future troubleshooting
 exec 1> >(tee -a "/var/log/stackscript.log") 2>&1
