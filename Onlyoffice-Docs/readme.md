@@ -46,5 +46,5 @@ API documentation https://api.onlyoffice.com/editors/basic
 
 ### Logo
 
-
+logo.svg
 
