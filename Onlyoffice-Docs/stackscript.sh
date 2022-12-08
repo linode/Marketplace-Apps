@@ -57,7 +57,6 @@ if [[ "${SSL_ENABLED}" == "true" ]]; then
                 onlyoffice/documentserver:${DOCS_VERSION}
 fi
 
-
 # Wait for run
 ready_check() {
   echo -e "\e[0;32m Waiting for the launch of DocumentServer... \e[0m"  
