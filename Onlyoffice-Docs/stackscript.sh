@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # <UDF name="jwt_enabled" Label="Specifies the enabling the JSON Web Token validation by the ONLYOFFICE Docs. This value set to true by default" example="false" default="true"> 
 # <UDF name="jwt_secret" Label="Defines the secret key to validate the JSON Web Token in the request to the ONLYOFFICE Docs. Default JWT value 'secret'. Keep empty if JWT is disabled" example="s4gsd9lfs" default="secret">
-# <UDF name="docs_version" Label="Specifies the ONLYOFFICE Docs version. Available version can be checked on https://hub.docker.com/r/onlyoffice/documentserver/tags. Keep empty for install latest version" example="7.2.1" default="latest">
+# <UDF name="docs_version" Label="Specifies the ONLYOFFICE Docs version. Available versions cant be chacked on hub.docker onlyoffice/documentserver. Keep empty for install latest version" example="7.2.1" default="latest">
 
 # SSL Settings
-# <UDF name="ssl_enabled" Label="Specifies the enabling ssl connection. If set to 'true' ssl sercificates will be generate automaticly. This value set to 'false' by default" default="false"> 
+# <UDF name="ssl_enabled" Label="Specifies the enabling ssl connection. If set to 'true' ssl sercificates will be generate automaticly." default="false"> 
 # <UDF name="lets_encrypt_domain" Label="Domain name for which certificates will be generated." example="example.com" default=""> 
 # <UDF name="lets_encrypt_mail" Label="Email address for correct generation of certificates" example="example@mail.com" default="">
 
