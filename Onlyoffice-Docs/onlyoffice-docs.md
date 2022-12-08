@@ -23,7 +23,7 @@ Ubuntu 22.04 LTS
 
 ONLYOFFICE-Docs [features page](https://www.onlyoffice.com/compare-editions.aspx)
 
-Onlyoffice-Docs [documentation page](https://api.onlyoffice.com/editors/basic)
+ONLYOFFICE-Docs [documentation page](https://api.onlyoffice.com/editors/basic)
 
 ## App Assets
 
