@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # <UDF name="jwt_enabled" Label="Specifies the enabling the JSON Web Token validation by the ONLYOFFICE Docs. This value set to true by default" example="false" default="true"> 
-# <UDF name="jwt_secret" Label="Defines the secret key to validate the JSON Web Token in the request to the ONLYOFFICE Docs. Default JWT value 'secret'. Keep empty if JWT is disabled" example="s4gsd9lfs" default="secret">
-# <UDF name="docs_version" Label="Specifies the ONLYOFFICE Docs version. Available versions cant be chacked on hub.docker onlyoffice/documentserver. Keep empty for install latest version" example="7.2.1" default="latest">
+# <UDF name="jwt_secret" Label="Defines the secret key to validate the JSON Web Token in the request to the ONLYOFFICE Docs. Default random value" example="secret" default="">
+# <UDF name="docs_version" Label="Specifies the ONLYOFFICE Docs version. Check available versions on hub.docker onlyoffice/documentserver. Keep empty for install latest" example="7.2.1" default="latest">
 
 # SSL Settings
 # <UDF name="ssl_enabled" Label="Specifies the enabling ssl connection. If set to 'true' ssl sercificates will be generate automaticly." default="false"> 
