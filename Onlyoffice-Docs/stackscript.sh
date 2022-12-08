@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# <UDF name="jwt_enabled" Label="Specifies the enabling the JSON Web Token validation by the ONLYOFFICE Docs. Defaults to true" example="true or false" default="true"> 
-# <UDF name="jwt_secret" Label="Defines the secret key to validate the JSON Web Token in the request to the ONLYOFFICE Docs. Default to secret. Keep empty if jwt is disabled" example="s4gsd9lfs" default="secret">
+# <UDF name="jwt_enabled" Label="Specifies the enabling the JSON Web Token validation by the ONLYOFFICE Docs. This value set to true by default" example="false" default="true"> 
+# <UDF name="jwt_secret" Label="Defines the secret key to validate the JSON Web Token in the request to the ONLYOFFICE Docs. Default JWT value 'secret'. Keep empty if JWT is disabled" example="s4gsd9lfs" default="secret">
 
 # Enable Logging to /var/log/stackscript.log for future troubleshooting
 exec 1> >(tee -a "/var/log/stackscript.log") 2>&1
