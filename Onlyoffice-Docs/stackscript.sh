@@ -25,8 +25,8 @@ if [[ "${SSL_ENABLED}" == "true" ]]; then
 		echo "Missing required LETS_ENCRYPT_DOMAIN parameter for correct SSL work"
 		exit 1
 	fi
-	if [[ -z ${LETS_ENCRYPT_DOMAIN} ]]; then
-		echo "Missing required LETS_ENCRYPT_DOMAIN parameter for correct SSL work"
+	if [[ -z ${LETS_ENCRYPT_MAIL} ]]; then
+		echo "Missing required LETS_ENCRYPT_MAIL parameter for correct SSL work"
 		exit 1
         fi
 	sudo docker run -i -t -d -p 80:80 -p 443:443 \
