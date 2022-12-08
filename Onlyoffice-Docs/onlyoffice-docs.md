@@ -21,6 +21,7 @@ ONLYOFFICE Docs can be:
 ### Support URL
 
 https://forum.onlyoffice.com
+
 https://github.com/ONLYOFFICE/Docker-DocumentServer/issues
 
 ### Operating System
@@ -30,6 +31,7 @@ Ubuntu 22.04 LTS
 ### Documentation
 
 User guides on functionality https://helpcenter.onlyoffice.com/userguides/docs-index.aspx
+
 API documentation https://api.onlyoffice.com/editors/basic
 
 ## App Assets
