@@ -46,5 +46,6 @@ API documentation https://api.onlyoffice.com/editors/basic
 
 ### Logo
 
-logo.svg
+The ONLYOFFICE-Docs App's logo in full color and white are contained within the assets directory.
 
+Also logos include in assets.zip
