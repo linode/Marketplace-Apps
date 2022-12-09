@@ -15,7 +15,7 @@ With multiple collaborative features you can work on the same document together 
 
 Note that ONLYOFFICE Docs doesn't contain any document management system.
 
-##ONLYOFFICE Docs can be:##
+## ONLYOFFICE Docs can be: ##
 
 * integrated with various cloud platforms like WordPress, Jira, Confluence, Alfresco, Nextcloud, Strapi, Redmine, ownCloud, Seafile, SharePoint, HumHub, Plone, etc. You can upgrade to ONLYOFFICE Docs Enterprise Edition in case you need a scalable solution with professional support.
 * integrated into the solution you're building yourself. You can upgrade to ONLYOFFICE Docs Developer Edition if you’re planning to deliver your solution to the end users under your corporate brand.
