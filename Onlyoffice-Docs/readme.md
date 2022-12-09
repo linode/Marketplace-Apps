@@ -37,9 +37,9 @@ Ubuntu 22.04 LTS
 
 ### Documentation
 
-User guides on functionality https://helpcenter.onlyoffice.com/userguides/docs-index.aspx
+[User guides on functionality](https://helpcenter.onlyoffice.com/userguides/docs-index.aspx)
 
-API documentation https://api.onlyoffice.com/editors/basic
+[API documentation](https://api.onlyoffice.com/editors/basic)
 
 ## App Assets
 
