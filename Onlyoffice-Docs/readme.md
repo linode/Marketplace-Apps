@@ -17,9 +17,9 @@ Note that ONLYOFFICE Docs doesn't contain any document management system.
 
 ## ONLYOFFICE Docs can be: ##
 
-* integrated with various cloud platforms like WordPress, Jira, Confluence, Alfresco, Nextcloud, Strapi, Redmine, ownCloud, Seafile, SharePoint, HumHub, Plone, etc. You can upgrade to ONLYOFFICE Docs Enterprise Edition in case you need a scalable solution with professional support.
-* integrated into the solution you're building yourself. You can upgrade to ONLYOFFICE Docs Developer Edition if you’re planning to deliver your solution to the end users under your corporate brand.
-* used as a part of ONLYOFFICE Workspace, a complete bundle of office apps for efficient team management and collaboration (upgrading to the scalable enterprise version is also possible).
+* integrated with various [cloud platforms](https://www.onlyoffice.com/all-connectors.aspx) like WordPress, Jira, Confluence, Alfresco, Nextcloud, Strapi, Redmine, ownCloud, Seafile, SharePoint, HumHub, Plone, etc. You can upgrade to [ONLYOFFICE Docs Enterprise Edition](https://www.onlyoffice.com/docs-enterprise-prices.aspx) in case you need a scalable solution with professional support.
+* integrated into the solution you're building yourself. You can upgrade to [ONLYOFFICE Docs Developer Edition](https://www.onlyoffice.com/developer-edition-prices.aspx) if you’re planning to deliver your solution to the end users under your corporate brand.
+* used as a part of [ONLYOFFICE Workspace](https://www.onlyoffice.com/workspace.aspx), a complete bundle of office apps for efficient team management and collaboration (upgrading to the scalable enterprise version is also possible).
 
 ### Version Number
 
