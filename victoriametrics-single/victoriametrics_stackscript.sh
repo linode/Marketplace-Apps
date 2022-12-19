@@ -21,7 +21,7 @@ chown -R victoriametrics:victoriametrics /var/lib/victoria-metrics-data
 
 # Install VictoriaMetrics Single
 VM_VERSION=`curl -sg "https://api.github.com/repos/VictoriaMetrics/VictoriaMetrics/tags" | jq -r '.[0].name'`
-wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/${VM_VERSION}/victoria-metrics-amd64-${VM_VERSION}.tar.gz  -O /tmp/victoria-metrics.tar.gz
+wget https://github.com/VictoriaMetrics/VictoriaMetrics/releases/download/${VM_VERSION}/victoria-metrics-linux-amd64-${VM_VERSION}.tar.gz  -O /tmp/victoria-metrics.tar.gz
 tar xvf /tmp/victoria-metrics.tar.gz -C /usr/bin
 chmod +x /usr/bin/victoria-metrics-prod
 chown root:root /usr/bin/victoria-metrics-prod
@@ -65,7 +65,7 @@ cat <<END >/etc/victoriametrics/single/victoriametrics.conf
 ARGS="-promscrape.config=/etc/victoriametrics/single/scrape.yml -storageDataPath=/var/lib/victoria-metrics-data -retentionPeriod=12 -httpListenAddr=:8428 -graphiteListenAddr=:2003 -opentsdbListenAddr=:4242 -influxListenAddr=:8089 -enableTCP6"
 END
 
-cat <<END /etc/victoriametrics/single/scrape.yml
+cat <<END >/etc/victoriametrics/single/scrape.yml
 # Scrape config example
 #
 scrape_configs:
