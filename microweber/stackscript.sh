@@ -3,7 +3,7 @@
 
 set -e
 
-MICROWEBER_INSTALLER_TAG="1.3.0"
+MICROWEBER_INSTALLER_TAG="1.3.1"
 WORKING_DIR="/var/www/html"
 DOWNLOAD_URL='http://updater.microweberapi.com/builds/master/microweber.zip'
 
@@ -20,24 +20,32 @@ EOM
 systemctl restart ssh
 
 add-apt-repository -y --remove ppa:mc3man/trusty-media
+add-apt-repository -y --remove ppa:ondrej/php
+add-apt-repository -y --remove ppa:ondrej/apache2
 apt-get update -y
-##echo "deb http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list;
-##echo "deb-src http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list;
+locale-gen en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+sudo apt-get install -y language-pack-en-base
+sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
+export UCF_FORCE_CONFFNEW=YES
+sudo apt update -y
+sudo apt install -y lsb-release ca-certificates apt-transport-https software-properties-common -y
 apt-get install -y libsodium-dev
-apt install -y lsb-release ca-certificates apt-transport-https software-properties-common
-add-apt-repository -y ppa:ondrej/php
-
+sudo apt update -y
 
 # 00-update.sh
 DEBIAN_FRONTEND=noninteractive apt-get update -qq >/dev/null
 apt install -y apache2 libapache2-mod-php
 apt install -y mysql-server
 apt install -y php8.1-{bcmath,xml,fpm,mysql,iconv,xsl,zip,intl,ldap,gd,cli,dev,bz2,curl,exif,mbstring,pgsql,sqlite3,tokenizer,opcache,soap,cgi,common,imap,opcache}
-apt install -y python3-certbot-apache software-properties-common unzip
+apt install -y python3-certbot-apache software-properties-common unzip curl
 apt install -y php-pear
 pecl install -f libsodium
 sed -i 's/;opcache.enable\s*=.*/opcache.enable=1/g' /etc/php/8.1/cli/php.ini
-
+echo 'extension=sodium.so' > /etc/php/8.1/cli/10-sodium.ini
+echo 'extension=sodium.so' > /etc/php/8.1/fpm/10-sodium.ini
+echo 'extension=sodium.so' > /etc/php/8.1/cgi/10-sodium.ini
 # 01-fs.sh
 cat >/etc/apache2/sites-available/000-default.conf <<EOM
 <VirtualHost *:80>
