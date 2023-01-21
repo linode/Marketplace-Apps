@@ -63,8 +63,8 @@ When you've provided all required Linode Options, click on the **Create** button
 
 ## Setting up the ownCloud Server
 
-Once the ownCloud server is up and running you can login with your admin user name and the provided password.
+Once the ownCloud Server is up and running you can login with your admin user name and the provided password.
 
-Please see the following documentation for adding new users: (https://doc.owncloud.com/server/admin_manual/configuration/user/user_management.html)
+Please see the following documentation about how to add new users: (https://doc.owncloud.com/server/admin_manual/configuration/user/user_management.html)
 
-A documentation about the web client and the possibilities for users can be found here: (https://doc.owncloud.com/webui/next/classic_ui/files/webgui/overview.html)
+A documentation about the Web client and the possibilities for users can be found here: (https://doc.owncloud.com/webui/next/classic_ui/files/webgui/overview.html)
