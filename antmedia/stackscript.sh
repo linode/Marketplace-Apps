@@ -4,7 +4,7 @@
 set -o pipefail
 exec > >(tee /dev/ttyS0 /var/log/stackscript.log) 2>&1
 
-ZIP_FILE="https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.5.1/ant-media-server-community-2.5.1.zip"
+ZIP_FILE="https://github.com/ant-media/Ant-Media-Server/releases/download/ams-v2.5.1/ant-media-server-community-2.5.3.zip"
 
 INSTALL_SCRIPT="https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-media-server.sh"
 
