@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ZIP_FILE="https://antmedia.io/linode/antmedia.zip"
+ZIP_FILE="https://antmedia.io/linode/antmedia_2.5.3.zip"
 INSTALL_SCRIPT="https://raw.githubusercontent.com/ant-media/Scripts/master/install_ant-media-server.sh"
 
 wget -q --no-check-certificate $ZIP_FILE -O /tmp/antmedia.zip && wget -q --no-check-certificate $INSTALL_SCRIPT -P /tmp/
