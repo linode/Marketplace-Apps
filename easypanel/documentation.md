@@ -44,6 +44,6 @@ After providing all required Linode Options, click on the **Create** button. **Y
 
 ## Getting Started after Deployment
 
-After creating your Linode, you can access Easypanel using the IP address of your server.
+After creating your Linode, you can access Easypanel using the IP address of your server on port 3000.
 
 {{< content "marketplace-update-note">}}

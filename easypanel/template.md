@@ -22,11 +22,11 @@ Easypanel is a modern server control panel which uses Docker under the hood. You
 
 ### Operating System
 
-Ubuntu 20.04 LTS
+Ubuntu 22.04 LTS
 
 ### Documentation
 
-After creating your Linode, you can access Easypanel using the IP address of your server.
+After creating your Linode, you can access Easypanel using the IP address of your server on port 3000.
 
 ## App Assets
 
