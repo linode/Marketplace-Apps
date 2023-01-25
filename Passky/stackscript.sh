@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# <UDF name="website" Label="Website" example="eu1.passky.org" />
+# <UDF name="website" Label="Website" example="passky.domain.com" />
 # <UDF name="email" Label="Email Address" example="info@rabbit-company.com" />
 # <UDF name="adminuser" Label="Admin Username" />
 # <UDF name="admin_password" Label="Admin Password" />
