@@ -13,7 +13,7 @@ RELEASE
 https://support.cpanel.net/
 
 ### Operating System
-Ubuntu 20.04 LTS, CentOS 7
+Rocky Linux 8, Ubuntu 20.04 LTS, CentOS 7
 
 ### Documentation
 https://www.linode.com/docs/products/tools/marketplace/guides/cpanel/

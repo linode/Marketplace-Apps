@@ -25,7 +25,7 @@ Provide configurations for your Linode server:
 
 | **Configuration** | **Description** |
 |:--------------|:------------|
-| **Select an Image** | Ubuntu 20.04 and CentOS 7 are supported by the cPanel & WHM Marketplace App. *Required*. |
+| **Select an Image** | Rocky Linux 8, Ubuntu 20.04, and CentOS 7 are supported by the cPanel & WHM Marketplace App. *Required*. |
 | **Region** | The region where you would like your Linode to reside. In general, it's best to choose a location that's closest to you. For more information on choosing a DC, review the [How to Choose a Data Center](/docs/platform/how-to-choose-a-data-center) guide. You can also generate [MTR reports](/docs/networking/diagnostics/diagnosing-network-issues-with-mtr/) for a deeper look at the network routes between you and each of our data centers. *Required*. |
 | **Linode Plan** | Your Linode's [hardware resources](/docs/platform/how-to-choose-a-linode-plan/#hardware-resource-definitions). cPanel & WHM can be supported on any size Linode, but we suggest you deploy your cPanel & WHM App on a Linode plan that reflects how you plan on using it. If you decide that you need more or fewer hardware resources after you deploy your app, you can always [resize your Linode](/docs/platform/disk-images/resizing-a-linode/) to a different plan. *Required*. |
 | **Linode Label** | The name for your Linode, which must be unique between all of the Linodes on your account. This name is how you identify your server in the Cloud Manager Dashboard. *Required*. |
