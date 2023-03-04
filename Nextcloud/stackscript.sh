@@ -43,3 +43,6 @@ Otherwise you can open the admin interface at https://$(hostname -I | cut -f1 -d
 Further documentation is available here: https://github.com/nextcloud/all-in-one
 
 EOF
+
+# Install unattended upgrades
+sudo apt-get install unattended-upgrades -y
