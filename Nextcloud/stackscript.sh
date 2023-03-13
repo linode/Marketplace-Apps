@@ -8,7 +8,7 @@ apt-get -o Acquire::ForceIPv4=true update -y
 ## END OF REQUIRED CODE FOR MARKETPLACE SUBMISSION
 
 # Install docker
-curl -fsSL get.docker.com | sudo sh
+curl -fsSL https://get.docker.com | sudo sh
 
 # Adjust permissions
 sudo mkdir -p /mnt/ncdata
