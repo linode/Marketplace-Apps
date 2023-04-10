@@ -8,7 +8,7 @@ apt-get -o Acquire::ForceIPv4=true update -y
 ## END OF REQUIRED CODE FOR MARKETPLACE SUBMISSION
 
 # Install docker
-curl -fsSL get.docker.com | sudo sh
+curl -fsSL https://get.docker.com | sudo sh
 
 # Adjust permissions
 sudo mkdir -p /mnt/ncdata
@@ -43,3 +43,6 @@ Otherwise you can open the admin interface at https://$(hostname -I | cut -f1 -d
 Further documentation is available here: https://github.com/nextcloud/all-in-one
 
 EOF
+
+# Install unattended upgrades
+sudo apt-get install unattended-upgrades -y
