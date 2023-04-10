@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# <UDF name="website" Label="Website" example="eu1.passky.org" />
+# <UDF name="website" Label="Website" example="passky.domain.com" />
 # <UDF name="email" Label="Email Address" example="info@rabbit-company.com" />
 # <UDF name="adminuser" Label="Admin Username" />
 # <UDF name="admin_password" Label="Admin Password" />
-# <UDF name="db_password" Label="MySQL Password" />
 
 # Motd
 cat << EOF > /etc/motd
@@ -53,8 +52,6 @@ IP_ADDRESS=$(system_primary_ip)
 sed -i "s/SERVER_CORES=1/SERVER_CORES=$SERVER_CORES/g" .env
 sed -i "s/ADMIN_USERNAME=admin/ADMIN_USERNAME=$ADMINUSER/g" .env
 sed -i "s/ADMIN_PASSWORD=/ADMIN_PASSWORD=$ADMIN_PASSWORD/g" .env
-sed -i "s/MYSQL_PASSWORD=/MYSQL_PASSWORD=$DB_PASSWORD/g" .env
-sed -i "s/MYSQL_ROOT_PASSWORD=/MYSQL_ROOT_PASSWORD=$DB_PASSWORD/g" .env
 
 docker-compose up -d
 
