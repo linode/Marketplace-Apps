@@ -10,7 +10,7 @@ Secure Backend Server for Web, Mobile & Flutter Developers 🚀 AKA the 100% ope
 
 ### Version Number
 
-1.2.0
+1.3
 
 ### Support URL
 
